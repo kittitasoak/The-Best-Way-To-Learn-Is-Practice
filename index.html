@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>Practice Set — Multiple Choice Practice &amp; Test App</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   WHITE-LABEL TOKENS — change these to rebrand the app
+   ========================================================= */
+:root{
+  --paper:#ECEEE9;
+  --paper-raised:#F6F5EF;
+  --ink:#182333;
+  --ink-soft:#55606E;
+  --red:#B23A2E;
+  --red-soft:#EFDEDA;
+  --green:#3F6B4E;
+  --green-soft:#DCE6DE;
+  --amber:#93630D;
+  --line:rgba(24,35,51,0.16);
+  --shadow:rgba(24,35,51,0.14);
+  --display-font:'Fraunces', Georgia, serif;
+  --body-font:'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  --mono-font:'IBM Plex Mono','Courier New', monospace;
+}
+
+*{box-sizing:border-box;}
+html,body{height:100%;}
+body{
+  margin:0;
+  font-family:var(--body-font);
+  color:var(--ink);
+  background:
+    repeating-linear-gradient(var(--paper) 0 31px, var(--line) 31px 32px),
+    var(--paper);
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:var(--display-font); margin:0;}
+p{margin:0;}
+button{font-family:inherit;}
+button:focus-visible, a:focus-visible, input:focus-visible{
+  outline:2px solid var(--red); outline-offset:2px;
+}
+img{display:block;}
+
+.mono-tag{
+  font-family:var(--mono-font);
+  font-size:.75rem;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
+}
+
+/* ---------- buttons ---------- */
+.btn{
+  font-family:var(--body-font);
+  font-size:.95rem;
+  font-weight:600;
+  padding:13px 22px;
+  border-radius:8px;
+  border:1.5px solid var(--ink);
+  cursor:pointer;
+  transition:transform .12s ease, background .15s ease, color .15s ease;
+}
+.btn-primary{ background:var(--ink); color:var(--paper-raised); }
+.btn-primary:hover{ transform:translateY(-1px); }
+.btn-ghost{ background:transparent; color:var(--ink); }
+.btn-ghost:hover{ background:var(--paper-raised); }
+.btn-stamp{
+  background:transparent; color:var(--red); border:2px solid var(--red);
+  border-radius:999px; font-family:var(--mono-font); text-transform:uppercase; letter-spacing:.04em;
+}
+.btn-stamp:hover{ background:var(--red); color:var(--paper-raised); }
+.btn[disabled]{ opacity:.55; cursor:default; transform:none; }
+.link-btn{
+  background:none; border:none; color:var(--ink-soft); text-decoration:underline;
+  font-size:.85rem; cursor:pointer; padding:4px;
+}
+.link-btn:hover{ color:var(--ink); }
+
+/* ---------- notices ---------- */
+.notice{
+  border-left:3px solid var(--ink-soft);
+  background:var(--paper-raised);
+  padding:12px 14px;
+  font-size:.9rem;
+  border-radius:0 6px 6px 0;
+  text-align:left;
+}
+.notice-error{ border-color:var(--red); color:var(--red); background:var(--red-soft); }
+.notice-ok{ border-color:var(--green); background:var(--green-soft); color:var(--ink); }
+
+/* ---------- screens ---------- */
+.screen{ display:none; }
+.screen.is-active{ display:block; }
+
+/* ---------- cover ---------- */
+#screen-cover.is-active{ display:flex; }
+#screen-cover{
+  min-height:100vh; align-items:center; justify-content:center; padding:32px 20px;
+}
+.cover-page{ max-width:600px; text-align:center; display:flex; flex-direction:column; gap:16px; align-items:center; }
+.eyebrow{ font-family:var(--mono-font); font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; color:var(--red); }
+.quote{ font-size:clamp(1.7rem,5vw,2.6rem); font-weight:600; line-height:1.25; }
+.cover-sub{ color:var(--ink-soft); font-size:1rem; max-width:440px; }
+.cover-actions{ display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:8px; }
+.cover-page .notice{ width:100%; max-width:440px; }
+#btn-start{ margin-top:6px; }
+.cover-foot{ margin-top:22px; display:flex; gap:18px; flex-wrap:wrap; justify-content:center; }
+
+/* ---------- quiz screen ---------- */
+#screen-quiz{ max-width:760px; margin:0 auto; padding:0 20px 100px; }
+.quiz-header{ position:sticky; top:0; background:var(--paper); padding:16px 0 10px; z-index:10; }
+.quiz-header-top{ display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; }
+.progress-rail{ height:3px; background:var(--line); border-radius:2px; overflow:hidden; }
+.progress-fill{ height:100%; background:var(--ink); width:0%; transition:width .25s ease; }
+.quiz-meta-row{ display:flex; justify-content:space-between; margin:10px 0 12px; }
+.dot-strip{ display:flex; gap:8px; overflow-x:auto; padding-bottom:4px; }
+.dot{ width:11px; height:11px; min-width:11px; border-radius:50%; border:1.5px solid var(--ink-soft); background:transparent; cursor:pointer; padding:0; }
+.dot.is-answered{ background:var(--ink-soft); border-color:var(--ink-soft); }
+.dot.is-current{ outline:2px solid var(--red); outline-offset:2px; border-color:var(--ink); }
+
+.question-area{ padding:20px 0 30px; }
+.topic-tag{ font-family:var(--mono-font); font-size:.75rem; text-transform:uppercase; letter-spacing:.06em; color:var(--red); margin-bottom:10px; }
+.question-text{ font-size:clamp(1.25rem,3vw,1.6rem); font-weight:600; line-height:1.35; margin-bottom:18px; }
+.question-image{ max-width:100%; max-height:320px; object-fit:contain; border:1px solid var(--line); border-radius:6px; margin-bottom:18px; background:var(--paper-raised); }
+
+.choices{ display:flex; flex-direction:column; gap:12px; }
+.choice{
+  display:flex; align-items:center; gap:14px; width:100%; text-align:left;
+  padding:14px 16px; border:1.5px solid var(--line); border-radius:10px;
+  background:var(--paper-raised); cursor:pointer; color:inherit;
+}
+.choice:not(.is-locked):hover{ border-color:var(--ink-soft); }
+.choice.is-selected{ border-color:var(--ink); box-shadow:inset 0 0 0 1.5px var(--ink); }
+.choice.is-locked{ cursor:default; align-items:flex-start; }
+.choice.is-correct-reveal{ border-color:var(--green); background:var(--green-soft); box-shadow:inset 0 0 0 1.5px var(--green); }
+.choice.is-wrong-reveal{ border-color:var(--red); background:var(--red-soft); box-shadow:inset 0 0 0 1.5px var(--red); }
+.bubble{
+  width:2em; height:2em; min-width:2em; border-radius:50%; border:2px solid var(--ink-soft);
+  display:flex; align-items:center; justify-content:center; font-family:var(--mono-font); font-weight:600;
+  transition:background .15s, color .15s, border-color .15s;
+}
+.choice.is-selected .bubble{ background:var(--ink); border-color:var(--ink); color:var(--paper-raised); }
+.choice.is-correct-reveal .bubble{ background:var(--green); border-color:var(--green); color:var(--paper-raised); }
+.choice.is-wrong-reveal .bubble{ background:var(--red); border-color:var(--red); color:var(--paper-raised); }
+.choice-body{ display:flex; flex-direction:column; gap:8px; }
+.choice-img{ max-width:150px; max-height:110px; border-radius:6px; border:1px solid var(--line); object-fit:contain; }
+.choice-explain{ margin-top:6px; padding-top:8px; border-top:1px dashed var(--line); }
+.choice-explain-text{ font-size:.85rem; line-height:1.5; color:var(--ink-soft); }
+.choice-explain-toggle{
+  margin-top:4px; background:none; border:none; padding:2px 0; color:var(--red);
+  font-size:.8rem; font-weight:600; text-decoration:underline; cursor:pointer;
+}
+
+.quiz-footer{
+  position:fixed; left:0; right:0; bottom:0; background:var(--paper-raised);
+  border-top:1px solid var(--line); padding:14px 20px; display:flex; justify-content:space-between; gap:12px;
+}
+.quiz-footer .btn{ flex:1; max-width:220px; }
+
+/* ---------- results ---------- */
+#screen-results{ max-width:720px; margin:0 auto; padding:36px 20px 60px; }
+.stamp-wrap{ display:flex; justify-content:center; margin-bottom:14px; }
+.stamp{
+  width:150px; height:150px; border-radius:50%; border:4px solid var(--ink);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  transform:rotate(-8deg); font-family:var(--mono-font); color:var(--ink);
+}
+.stamp-frac{ font-size:1.9rem; font-weight:700; }
+.stamp-pct{ font-size:.85rem; }
+.stamp-good{ border-color:var(--green); color:var(--green); }
+.stamp-mid{ border-color:var(--amber); color:var(--amber); }
+.stamp-low{ border-color:var(--red); color:var(--red); }
+@keyframes stampIn{
+  0%{ transform:rotate(-8deg) scale(2.2); opacity:0; }
+  65%{ opacity:1; }
+  100%{ transform:rotate(-8deg) scale(1); opacity:1; }
+}
+.stamp.stamp-in{ animation:stampIn .5s cubic-bezier(.22,.85,.3,1.15); }
+@media (prefers-reduced-motion:reduce){ .stamp.stamp-in{ animation:none; } }
+
+.results-headline{ text-align:center; font-size:1.5rem; font-weight:600; margin-bottom:20px; }
+.results-meta{ display:flex; justify-content:center; gap:34px; flex-wrap:wrap; margin-bottom:30px; }
+.meta-item{ display:flex; flex-direction:column; align-items:center; gap:4px; }
+.meta-label{ font-family:var(--mono-font); font-size:.72rem; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-soft); }
+.meta-value{ font-size:1.15rem; font-weight:700; }
+
+.section-label{ font-family:var(--mono-font); font-size:.78rem; text-transform:uppercase; letter-spacing:.08em; color:var(--ink-soft); border-bottom:1px solid var(--line); padding-bottom:8px; margin-bottom:14px; }
+
+.topic-breakdown{ margin-bottom:30px; }
+.topic-row{ display:grid; grid-template-columns:110px 1fr auto; gap:10px; align-items:center; margin-bottom:10px; }
+.topic-name{ font-size:.88rem; }
+.topic-track{ height:8px; background:var(--line); border-radius:4px; overflow:hidden; }
+.topic-fill{ height:100%; background:var(--ink); border-radius:4px; }
+
+.results-actions{ display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-bottom:10px; }
+
+.ai-panel{
+  background:var(--paper-raised); border:1px solid var(--line); border-left:4px solid var(--red);
+  padding:18px 20px; border-radius:2px; margin:26px 0;
+}
+.sticky-label{ font-family:var(--mono-font); font-size:.72rem; text-transform:uppercase; letter-spacing:.08em; color:var(--red); }
+.ai-overview{ margin-top:10px; line-height:1.5; }
+.ai-list{ margin-top:12px; }
+.ai-list-label{ font-weight:700; font-size:.85rem; margin-bottom:4px; }
+.ai-list ul{ margin:4px 0 0; padding-left:20px; line-height:1.5; }
+.ai-tip{ margin-top:14px; background:var(--green-soft); padding:10px 14px; border-radius:6px; line-height:1.5; }
+.ai-fallback{ color:var(--ink-soft); font-size:.9rem; line-height:1.5; }
+.ai-loading{ color:var(--ink-soft); font-style:italic; }
+
+.review-list{ margin-top:6px; }
+.review-item{ display:flex; gap:14px; padding:16px 0; border-bottom:1px solid var(--line); }
+.review-mark{
+  width:28px; height:28px; min-width:28px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-weight:700; font-family:var(--mono-font);
+}
+.is-correct .review-mark{ color:var(--green); border:2px solid var(--green); }
+.is-incorrect .review-mark{ color:var(--red); border:2px solid var(--red); }
+.review-q{ font-weight:600; margin-bottom:4px; }
+.review-line{ font-size:.9rem; color:var(--ink-soft); margin:3px 0; }
+.review-explain{ font-size:.88rem; font-style:italic; margin-top:6px; color:var(--ink-soft); }
+
+/* ---------- help modal ---------- */
+.modal-overlay{
+  position:fixed; inset:0; background:rgba(24,35,51,.55); display:flex; align-items:center; justify-content:center;
+  padding:20px; z-index:50;
+}
+.modal-overlay[hidden]{ display:none; }
+.modal{
+  background:var(--paper-raised); max-width:560px; width:100%; max-height:85vh; overflow-y:auto;
+  padding:30px 26px; border-radius:10px; position:relative;
+}
+.modal h2{ font-size:1.3rem; margin-bottom:12px; }
+.modal p{ line-height:1.55; margin-bottom:12px; color:var(--ink-soft); font-size:.92rem; }
+.modal-close{
+  position:absolute; top:14px; right:14px; background:none; border:none; font-size:1.4rem; line-height:1;
+  cursor:pointer; color:var(--ink-soft); width:32px; height:32px;
+}
+#schema-pre{
+  background:var(--paper); border:1px solid var(--line); padding:14px; font-family:var(--mono-font);
+  font-size:.76rem; overflow-x:auto; border-radius:6px; white-space:pre; margin-bottom:16px; line-height:1.5;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width:600px){
+  .stamp{ width:120px; height:120px; }
+  .stamp-frac{ font-size:1.5rem; }
+  .results-meta{ gap:20px; }
+  .quiz-footer .btn{ max-width:none; }
+  .choice-img{ max-width:110px; max-height:90px; }
+  .topic-row{ grid-template-columns:80px 1fr auto; }
+}
+</style>
+</head>
+<body>
+<div id="app">
+
+  <!-- ============ COVER ============ -->
+  <section id="screen-cover" class="screen is-active">
+    <div class="cover-page">
+      <p class="eyebrow">Practice Set · Multiple-choice trainer</p>
+      <h1 class="quote">"The Best Way To Learn Is Practice."</h1>
+      <p class="cover-sub">Load a question file, or try the sample set below, then work through it at your own pace.</p>
+
+      <div class="cover-actions">
+        <button id="btn-upload" class="btn btn-primary">Load question file</button>
+        <button id="btn-demo" class="btn btn-ghost">Try the sample set</button>
+      </div>
+
+      <div id="cover-error" class="notice notice-error" hidden></div>
+      <div id="cover-loaded" class="notice notice-ok" hidden></div>
+
+      <button id="btn-start" class="btn btn-stamp" hidden>Start practice →</button>
+
+      <div class="cover-foot">
+        <button id="btn-help" class="link-btn">File format &amp; how to build your own set</button>
+        <button id="btn-sample-download" class="link-btn">Download sample file</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section id="screen-quiz" class="screen">
+    <header class="quiz-header">
+      <div class="quiz-header-top">
+        <span class="mono-tag" id="quiz-title-tag">Practice set</span>
+        <button id="btn-quit" class="link-btn">Exit</button>
+      </div>
+      <div class="progress-rail"><div class="progress-fill" id="progress-fill"></div></div>
+      <div class="quiz-meta-row">
+        <span class="mono-tag" id="question-counter">Question 1 of 1</span>
+        <span class="mono-tag" id="quiz-timer">00:00</span>
+      </div>
+      <div class="dot-strip" id="dot-strip"></div>
+    </header>
+
+    <main class="question-area">
+      <p class="topic-tag" id="question-topic" hidden></p>
+      <h2 class="question-text" id="question-text"></h2>
+      <img id="question-image" class="question-image" hidden alt="">
+      <div class="choices" id="choices-list"></div>
+    </main>
+
+    <footer class="quiz-footer">
+      <button id="btn-prev" class="btn btn-ghost">← Back</button>
+      <button id="btn-next" class="btn btn-primary">Next →</button>
+    </footer>
+  </section>
+
+  <!-- ============ RESULTS ============ -->
+  <section id="screen-results" class="screen">
+    <div class="results-page">
+      <div class="stamp-wrap">
+        <div class="stamp" id="score-stamp">
+          <span class="stamp-frac" id="stamp-frac">0/0</span>
+          <span class="stamp-pct" id="stamp-pct">0%</span>
+        </div>
+      </div>
+      <h2 class="results-headline" id="results-headline">—</h2>
+
+      <div class="results-meta">
+        <div class="meta-item"><span class="meta-label">Time</span><span class="meta-value" id="meta-time">—</span></div>
+        <div class="meta-item"><span class="meta-label">Correct</span><span class="meta-value" id="meta-correct">—</span></div>
+        <div class="meta-item"><span class="meta-label">Missed</span><span class="meta-value" id="meta-missed">—</span></div>
+      </div>
+
+      <div id="topic-breakdown" class="topic-breakdown" hidden>
+        <h3 class="section-label">By topic</h3>
+        <div id="topic-bars"></div>
+      </div>
+
+      <div class="results-actions">
+        <button id="btn-ai-summary" class="btn btn-primary">Get AI study notes</button>
+        <button id="btn-retake" class="btn btn-ghost">Retake this set</button>
+        <button id="btn-new-file" class="btn btn-ghost">Load another file</button>
+      </div>
+
+      <div id="ai-panel" class="ai-panel" hidden>
+        <p class="sticky-label">Study notes</p>
+        <div id="ai-content"></div>
+      </div>
+
+      <h3 class="section-label">Answer review</h3>
+      <div id="review-list" class="review-list"></div>
+    </div>
+  </section>
+
+  <!-- ============ HELP MODAL ============ -->
+  <div id="help-modal" class="modal-overlay" hidden>
+    <div class="modal">
+      <button id="btn-help-close" class="modal-close" aria-label="Close">×</button>
+      <h2>Building a question file</h2>
+      <p>A question file is a plain <strong>.json</strong> file. Here's the shape it needs — <code>image</code>, <code>topic</code> and <code>explanation</code> are all optional.</p>
+      <pre id="schema-pre">{
+  "title": "Sample Practice Set",
+  "instantFeedback": true,
+  "questions": [
+    {
+      "topic": "Geography",
+      "question": "What is the capital of Japan?",
+      "choices": [
+        { "text": "Osaka", "explanation": "Not quite — Osaka is Japan's second-largest city." },
+        { "text": "Tokyo", "explanation": "Correct — Tokyo became the capital in 1868." },
+        { "text": "Kyoto", "explanation": "Not quite — Kyoto was the capital before 1868." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Tokyo became the capital in 1868."
+    },
+    {
+      "question": "Which shape is shown?",
+      "image": "https://example.com/shape.png",
+      "choices": [
+        { "text": "Triangle", "image": "data:image/svg+xml;utf8,..." },
+        { "text": "Square" }
+      ],
+      "correctIndex": 0
+    }
+  ]
+}</pre>
+      <p><strong>Images</strong> can be a normal web link (<code>https://...</code>) or an embedded file (a <code>data:image/...;base64,...</code> string), on a question, a choice, both, or neither.</p>
+      <p><strong>Instant feedback:</strong> set top-level <code>"instantFeedback": true</code> to reveal correct/incorrect and any explanations right after each answer, instead of only at the end. Leave it off (or omit it) to only show the review at the end. Any question can override the quiz's setting with its own <code>"instantFeedback"</code> value.</p>
+      <p><strong>Explanations:</strong> add <code>"explanation"</code> text to a choice to explain that specific option — shown under it once revealed, with a "See more" toggle if it runs long. A question-level <code>"explanation"</code> is used as a fallback under the correct choice when choices don't have their own, and is always shown in the end-of-test review.</p>
+      <button id="btn-sample-download-2" class="btn btn-primary">Download sample file</button>
+    </div>
+  </div>
+
+</div>
+
+<input type="file" id="file-input" accept="application/json,.json" hidden>
+
+<script>
+(function(){
+  "use strict";
+
+  const $ = (sel)=> document.querySelector(sel);
+  const APP_NAME = "Practice Set";
+
+  /* ---------------- demo / sample data ---------------- */
+  function svgDataUri(inner, bg){
+    const svg = '<svg xmlns="http://www.w3.org/2000/svg" width="240" height="180"><rect width="240" height="180" fill="'+(bg||'#ECEEE9')+'"/>'+inner+'</svg>';
+    return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+  }
+  const IMG_TRIANGLE = svgDataUri('<polygon points="120,35 195,150 45,150" fill="#B23A2E"/>');
+  const IMG_RED_SQUARE = svgDataUri('<rect x="70" y="45" width="100" height="90" fill="#B23A2E"/>');
+  const IMG_BLUE_SQUARE = svgDataUri('<rect x="70" y="45" width="100" height="90" fill="#2E5A88"/>');
+  const IMG_GREEN_CIRCLE = svgDataUri('<circle cx="120" cy="90" r="50" fill="#3F6B4E"/>');
+
+  const SAMPLE_QUIZ = {
+    title: "Sample Practice Set",
+    description: "A short demo set showing text questions, images, topics, and per-choice explanations.",
+    instantFeedback: true,
+    questions: [
+      {
+        topic: "Geography",
+        question: "Which country is home to the Great Barrier Reef?",
+        choices: [
+          { text:"Australia", explanation:"Correct — the reef stretches over 2,300 kilometers along Australia's Queensland coast and is the largest living structure on Earth, visible even from space." },
+          { text:"Brazil", explanation:"Not quite — Brazil is home to the Amazon rainforest, not the Great Barrier Reef." },
+          { text:"Canada", explanation:"Not quite — Canada's coastlines are mostly cold-water marine environments with no reefs of this scale." },
+          { text:"Japan", explanation:"Not quite — Japan has coral reefs near Okinawa, but nothing on this scale." }
+        ],
+        correctIndex: 0,
+        explanation: "The Great Barrier Reef lies off the coast of Queensland, Australia."
+      },
+      {
+        topic: "Shapes",
+        question: "Which shape appears in the image below?",
+        image: IMG_TRIANGLE,
+        choices: [ {text:"Triangle"}, {text:"Square"}, {text:"Circle"} ],
+        correctIndex: 0
+      },
+      {
+        topic: "Geography",
+        question: "What is the capital of Japan?",
+        choices: [ {text:"Osaka"}, {text:"Tokyo"}, {text:"Kyoto"}, {text:"Nagoya"} ],
+        correctIndex: 1,
+        explanation: "Tokyo became the capital of Japan in 1868."
+      },
+      {
+        topic: "Science",
+        question: "Which gas do plants absorb from the air for photosynthesis?",
+        choices: [ {text:"Oxygen"}, {text:"Nitrogen"}, {text:"Carbon dioxide"}, {text:"Helium"} ],
+        correctIndex: 2
+      },
+      {
+        topic: "Shapes",
+        question: "Which of these is the solid red square?",
+        choices: [
+          { text:"Option A", image: IMG_RED_SQUARE },
+          { text:"Option B", image: IMG_BLUE_SQUARE },
+          { text:"Option C", image: IMG_GREEN_CIRCLE }
+        ],
+        correctIndex: 0
+      },
+      {
+        topic: "Science",
+        question: "What is the chemical formula for water?",
+        choices: [ {text:"H2O"}, {text:"CO2"}, {text:"O2"}, {text:"NaCl"} ],
+        correctIndex: 0,
+        explanation: "Water is made of two hydrogen atoms bonded to one oxygen atom."
+      }
+    ]
+  };
+
+  /* ---------------- state ---------------- */
+  const state = {
+    quiz: null,
+    index: 0,
+    answers: [],
+    startTs: null,
+    timerId: null,
+    elapsedSec: 0
+  };
+
+  function escapeHtml(str){
+    return String(str).replace(/[&<>"']/g, s=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));
+  }
+
+  /* ---------------- validation ---------------- */
+  function validateQuiz(data){
+    if(!data || typeof data !== 'object' || Array.isArray(data)){
+      throw new Error('The file is not a valid question set — it needs to be a JSON object.');
+    }
+    if(!Array.isArray(data.questions) || data.questions.length === 0){
+      throw new Error('The file needs a "questions" array with at least one question.');
+    }
+    data.questions.forEach((q, i)=>{
+      const n = i+1;
+      if(!q || typeof q.question !== 'string' || !q.question.trim()){
+        throw new Error('Question '+n+' is missing its "question" text.');
+      }
+      if(!Array.isArray(q.choices) || q.choices.length < 2){
+        throw new Error('Question '+n+' needs at least two "choices".');
+      }
+      q.choices.forEach((c, ci)=>{
+        if(!c || typeof c.text !== 'string' || !c.text.trim()){
+          throw new Error('Question '+n+', choice '+(ci+1)+' is missing "text".');
+        }
+      });
+      if(typeof q.correctIndex !== 'number' || q.correctIndex < 0 || q.correctIndex >= q.choices.length){
+        throw new Error('Question '+n+' needs a "correctIndex" pointing to one of its choices.');
+      }
+    });
+    return data;
+  }
+
+  /* ---------------- cover / loading ---------------- */
+  function showCoverError(msg){
+    const el = $('#cover-error');
+    el.hidden = false; el.textContent = msg;
+    $('#cover-loaded').hidden = true;
+    $('#btn-start').hidden = true;
+  }
+  function hideCoverError(){ $('#cover-error').hidden = true; }
+
+  function loadQuiz(data, label){
+    hideCoverError();
+    state.quiz = data;
+    const el = $('#cover-loaded');
+    el.hidden = false;
+    el.innerHTML = '<strong>'+escapeHtml(data.title || 'Untitled set')+'</strong> loaded — '+
+      data.questions.length+' question'+(data.questions.length===1?'':'s')+
+      (label ? ' (from '+escapeHtml(label)+')' : '');
+    $('#btn-start').hidden = false;
+  }
+
+  function handleFile(file){
+    const reader = new FileReader();
+    reader.onload = function(e){
+      let data;
+      try{ data = JSON.parse(e.target.result); }
+      catch(err){ showCoverError('That file is not valid JSON — check for a missing comma or bracket.'); return; }
+      try{ validateQuiz(data); }
+      catch(err){ showCoverError(err.message); return; }
+      loadQuiz(data, file.name);
+    };
+    reader.onerror = function(){ showCoverError('The file could not be read. Please try again.'); };
+    reader.readAsText(file);
+  }
+
+  /* ---------------- screens ---------------- */
+  function showScreen(id){
+    document.querySelectorAll('.screen').forEach(s=> s.classList.toggle('is-active', s.id===id));
+    window.scrollTo(0,0);
+  }
+
+  /* ---------------- quiz flow ---------------- */
+  function startQuiz(){
+    state.index = 0;
+    state.answers = new Array(state.quiz.questions.length).fill(null);
+    state.elapsedSec = 0;
+    $('#quiz-title-tag').textContent = state.quiz.title || APP_NAME;
+    buildDotStrip();
+    showScreen('screen-quiz');
+    renderQuestion();
+    startTimer();
+  }
+
+  function renderQuestion(){
+    const q = state.quiz.questions[state.index];
+    $('#question-counter').textContent = 'Question '+(state.index+1)+' of '+state.quiz.questions.length;
+    $('#progress-fill').style.width = (state.quiz.questions.length>1 ? (state.index/(state.quiz.questions.length-1))*100 : 100)+'%';
+
+    const topicEl = $('#question-topic');
+    if(q.topic){ topicEl.hidden=false; topicEl.textContent=q.topic; } else { topicEl.hidden=true; }
+
+    $('#question-text').textContent = q.question;
+
+    const imgEl = $('#question-image');
+    if(q.image){ imgEl.hidden=false; imgEl.src=q.image; imgEl.alt=q.question; }
+    else{ imgEl.hidden=true; imgEl.removeAttribute('src'); }
+
+    const list = $('#choices-list');
+    list.innerHTML = '';
+    const letters = ['A','B','C','D','E','F','G','H'];
+    const feedbackOn = isInstantFeedback(q);
+    const locked = feedbackOn && state.answers[state.index] !== null;
+    q.choices.forEach((c, ci)=>{
+      list.appendChild(createChoiceEl(q, ci, letters[ci]||ci+1, locked));
+    });
+
+    $('#btn-prev').disabled = state.index===0;
+    $('#btn-next').textContent = (state.index === state.quiz.questions.length-1) ? 'Finish test' : 'Next →';
+    updateDotStrip();
+  }
+
+  /* Whether a question should reveal correctness + explanations immediately
+     after the learner answers it. A question can override the quiz-level
+     default by setting its own "instantFeedback" boolean. */
+  function isInstantFeedback(q){
+    if(typeof q.instantFeedback === 'boolean') return q.instantFeedback;
+    return !!(state.quiz && state.quiz.instantFeedback);
+  }
+  function hasAnyChoiceExplanation(q){
+    return q.choices.some(function(c){ return !!(c.explanation && c.explanation.trim()); });
+  }
+
+  function createChoiceEl(q, ci, letter, locked){
+    const isSelected = state.answers[state.index] === ci;
+    const isCorrectChoice = ci === q.correctIndex;
+    const el = document.createElement(locked ? 'div' : 'button');
+    if(!locked) el.type = 'button';
+    el.className = 'choice';
+    el.dataset.index = ci;
+    if(isSelected) el.classList.add('is-selected');
+    if(locked){
+      el.classList.add('is-locked');
+      if(isCorrectChoice) el.classList.add('is-correct-reveal');
+      if(isSelected && !isCorrectChoice) el.classList.add('is-wrong-reveal');
+    }
+
+    const bubble = document.createElement('span');
+    bubble.className = 'bubble';
+    bubble.textContent = letter;
+    el.appendChild(bubble);
+
+    const body = document.createElement('span');
+    body.className = 'choice-body';
+    const textEl = document.createElement('span');
+    textEl.className = 'choice-text';
+    textEl.textContent = q.choices[ci].text;
+    body.appendChild(textEl);
+
+    if(q.choices[ci].image){
+      const img = document.createElement('img');
+      img.className = 'choice-img';
+      img.src = q.choices[ci].image;
+      img.alt = '';
+      body.appendChild(img);
+    }
+
+    if(locked){
+      // Prefer this choice's own explanation. If no choice in the question has
+      // one, fall back to the question-level explanation shown under the
+      // correct choice only, so it isn't repeated under every option.
+      const text = (q.choices[ci].explanation && q.choices[ci].explanation.trim())
+        ? q.choices[ci].explanation.trim()
+        : (isCorrectChoice && !hasAnyChoiceExplanation(q) && q.explanation ? q.explanation.trim() : null);
+      if(text){ body.appendChild(buildExplanationEl(text)); }
+    }
+
+    el.appendChild(body);
+    if(!locked){ el.addEventListener('click', function(){ selectChoice(ci); }); }
+    return el;
+  }
+
+  /* Renders explanation text, truncated with a "See more" / "See less"
+     toggle once it passes a readable length. */
+  function buildExplanationEl(text){
+    const THRESHOLD = 140;
+    const wrap = document.createElement('div');
+    wrap.className = 'choice-explain';
+    const p = document.createElement('p');
+    p.className = 'choice-explain-text';
+
+    if(text.length <= THRESHOLD){
+      p.textContent = text;
+      wrap.appendChild(p);
+      return wrap;
+    }
+
+    let expanded = false;
+    const shortText = text.slice(0, THRESHOLD).trim() + '…';
+    p.textContent = shortText;
+    const toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.className = 'choice-explain-toggle';
+    toggle.textContent = 'See more';
+    toggle.addEventListener('click', function(ev){
+      ev.preventDefault();
+      ev.stopPropagation();
+      expanded = !expanded;
+      p.textContent = expanded ? text : shortText;
+      toggle.textContent = expanded ? 'See less' : 'See more';
+    });
+    wrap.appendChild(p);
+    wrap.appendChild(toggle);
+    return wrap;
+  }
+
+  function selectChoice(ci){
+    const q = state.quiz.questions[state.index];
+    state.answers[state.index] = ci;
+    if(isInstantFeedback(q)){
+      renderQuestion(); // redraw so the answered choice locks and reveals feedback
+    } else {
+      document.querySelectorAll('.choice').forEach(function(b){
+        b.classList.toggle('is-selected', Number(b.dataset.index)===ci);
+      });
+    }
+    updateDotStrip();
+  }
+
+  function buildDotStrip(){
+    const strip = $('#dot-strip');
+    strip.innerHTML = '';
+    state.quiz.questions.forEach(function(_, i){
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'dot';
+      b.setAttribute('aria-label', 'Go to question '+(i+1));
+      b.addEventListener('click', function(){ state.index=i; renderQuestion(); });
+      strip.appendChild(b);
+    });
+    updateDotStrip();
+  }
+  function updateDotStrip(){
+    document.querySelectorAll('.dot').forEach(function(d, i){
+      d.classList.toggle('is-current', i===state.index);
+      d.classList.toggle('is-answered', state.answers[i]!==null);
+    });
+  }
+
+  function goPrev(){ if(state.index>0){ state.index--; renderQuestion(); } }
+  function goNext(){
+    if(state.index < state.quiz.questions.length-1){ state.index++; renderQuestion(); }
+    else{ finishQuiz(); }
+  }
+
+  function formatTime(sec){
+    const m = Math.floor(sec/60), s = sec%60;
+    return String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+  }
+  function startTimer(){
+    state.startTs = Date.now();
+    clearInterval(state.timerId);
+    state.timerId = setInterval(function(){
+      state.elapsedSec = Math.floor((Date.now()-state.startTs)/1000);
+      $('#quiz-timer').textContent = formatTime(state.elapsedSec);
+    }, 1000);
+  }
+  function stopTimer(){ clearInterval(state.timerId); }
+
+  function finishQuiz(){
+    stopTimer();
+    const results = computeResults();
+    renderResults(results);
+    showScreen('screen-results');
+  }
+
+  function computeResults(){
+    const qs = state.quiz.questions;
+    let correct = 0;
+    const perQuestion = qs.map(function(q, i){
+      const chosen = state.answers[i];
+      const isCorrect = chosen === q.correctIndex;
+      if(isCorrect) correct++;
+      return { q:q, index:i, chosen:chosen, isCorrect:isCorrect };
+    });
+    const topics = {};
+    perQuestion.forEach(function(r){
+      const t = r.q.topic;
+      if(!t) return;
+      topics[t] = topics[t] || { correct:0, total:0 };
+      topics[t].total++;
+      if(r.isCorrect) topics[t].correct++;
+    });
+    return {
+      total: qs.length,
+      correct: correct,
+      missed: qs.length-correct,
+      pct: Math.round((correct/qs.length)*100),
+      timeSec: state.elapsedSec,
+      perQuestion: perQuestion,
+      topics: topics
+    };
+  }
+
+  /* ---------------- results rendering ---------------- */
+  function renderResults(r){
+    $('#stamp-frac').textContent = r.correct+'/'+r.total;
+    $('#stamp-pct').textContent = r.pct+'%';
+    const stamp = $('#score-stamp');
+    stamp.classList.remove('stamp-good','stamp-mid','stamp-low','stamp-in');
+    stamp.classList.add(r.pct>=70 ? 'stamp-good' : (r.pct>=40 ? 'stamp-mid' : 'stamp-low'));
+    void stamp.offsetWidth;
+    stamp.classList.add('stamp-in');
+
+    $('#results-headline').textContent =
+      r.pct>=90 ? 'Excellent work.' :
+      r.pct>=70 ? 'Solid work.' :
+      r.pct>=40 ? 'Good start — a few gaps to close.' :
+      'Time to review the basics.';
+
+    $('#meta-time').textContent = formatTime(r.timeSec);
+    $('#meta-correct').textContent = r.correct+' of '+r.total;
+    $('#meta-missed').textContent = String(r.missed);
+
+    const topicKeys = Object.keys(r.topics);
+    const tb = $('#topic-breakdown');
+    if(topicKeys.length){
+      tb.hidden = false;
+      const wrap = $('#topic-bars'); wrap.innerHTML = '';
+      topicKeys.forEach(function(t){
+        const v = r.topics[t];
+        const pct = Math.round((v.correct/v.total)*100);
+        const row = document.createElement('div');
+        row.className = 'topic-row';
+        row.innerHTML =
+          '<span class="topic-name"></span>'+
+          '<div class="topic-track"><div class="topic-fill" style="width:'+pct+'%"></div></div>'+
+          '<span class="topic-frac mono-tag">'+v.correct+'/'+v.total+'</span>';
+        row.querySelector('.topic-name').textContent = t;
+        wrap.appendChild(row);
+      });
+    } else { tb.hidden = true; }
+
+    renderReview(r);
+    $('#ai-panel').hidden = true;
+    $('#ai-content').innerHTML = '';
+    $('#btn-ai-summary').disabled = false;
+    $('#btn-ai-summary').textContent = 'Get AI study notes';
+  }
+
+  function renderReview(r){
+    const list = $('#review-list');
+    list.innerHTML = '';
+    r.perQuestion.forEach(function(item){
+      const q = item.q, index = item.index, chosen = item.chosen, isCorrect = item.isCorrect;
+      const row = document.createElement('div');
+      row.className = 'review-item ' + (isCorrect ? 'is-correct' : 'is-incorrect');
+      const chosenText = chosen===null ? '— No answer —' : q.choices[chosen].text;
+      const correctText = q.choices[q.correctIndex].text;
+      row.innerHTML =
+        '<div class="review-mark">'+(isCorrect?'✓':'✗')+'</div>'+
+        '<div class="review-body">'+
+          '<p class="review-q"><span class="mono-tag">Q'+(index+1)+'</span> <span class="review-qtext"></span></p>'+
+          '<p class="review-line">Your answer: <strong class="review-chosen"></strong></p>'+
+          (!isCorrect ? '<p class="review-line">Correct answer: <strong class="review-correct"></strong></p>' : '')+
+          (q.explanation ? '<p class="review-explain"></p>' : '')+
+        '</div>';
+      row.querySelector('.review-qtext').textContent = q.question;
+      row.querySelector('.review-chosen').textContent = chosenText;
+      if(!isCorrect) row.querySelector('.review-correct').textContent = correctText;
+      if(q.explanation) row.querySelector('.review-explain').textContent = q.explanation;
+      list.appendChild(row);
+    });
+  }
+
+  /* ---------------- AI study notes ---------------- */
+  async function requestAiSummary(){
+    const r = computeResults();
+    const btn = $('#btn-ai-summary');
+    btn.disabled = true;
+    btn.textContent = 'Thinking…';
+    $('#ai-panel').hidden = false;
+    $('#ai-content').innerHTML = '<p class="ai-loading">Reading your results…</p>';
+
+    const missed = r.perQuestion.filter(function(x){ return !x.isCorrect; }).map(function(x){
+      return {
+        topic: x.q.topic || null,
+        question: x.q.question,
+        yourAnswer: x.chosen===null ? null : x.q.choices[x.chosen].text,
+        correctAnswer: x.q.choices[x.q.correctIndex].text,
+        explanation: x.q.explanation || null
+      };
+    });
+    const topicSummary = Object.keys(r.topics).map(function(t){
+      return t+': '+r.topics[t].correct+'/'+r.topics[t].total;
+    }).join(', ');
+
+    const userPrompt =
+      'Quiz: '+(state.quiz.title || 'Untitled set')+'\n'+
+      'Score: '+r.correct+'/'+r.total+' ('+r.pct+'%)\n'+
+      'Topic accuracy: '+(topicSummary || 'not tagged')+'\n'+
+      'Missed questions (JSON): '+JSON.stringify(missed).slice(0,6000)+'\n\n'+
+      'Write brief, encouraging study notes for this learner.';
+
+    try{
+      const res = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-6',
+          max_tokens: 1000,
+          system: 'You are a concise, encouraging study coach reviewing a practice-test result. Respond ONLY with minified JSON, no markdown or code fences, matching exactly this shape: {"overview":"1-2 sentence summary of overall performance","strengths":["short phrase"],"focusAreas":["short phrase"],"tip":"one concrete, actionable study tip"}. Keep every string under 160 characters. If there are no missed questions, praise the result, leave focusAreas as an empty array, and still give one tip for staying sharp.',
+          messages: [{ role: 'user', content: userPrompt }]
+        })
+      });
+      if(!res.ok) throw new Error('Request failed: '+res.status);
+      const data = await res.json();
+      const textBlock = (data.content||[]).find(function(b){ return b.type==='text'; });
+      if(!textBlock) throw new Error('No response text.');
+      const cleaned = textBlock.text.replace(/```json|```/g,'').trim();
+      const parsed = JSON.parse(cleaned);
+      renderAiPanel(parsed);
+      btn.textContent = 'Regenerate study notes';
+    }catch(err){
+      $('#ai-content').innerHTML =
+        '<p class="ai-fallback">AI study notes aren\'t available right now — this feature calls Claude\'s API, '+
+        'which needs to run inside Claude, or through your own connected backend once this app is hosted on its own. '+
+        'Your full written review below covers every question.</p>';
+      btn.textContent = 'Get AI study notes';
+    }finally{
+      btn.disabled = false;
+    }
+  }
+
+  function renderAiPanel(p){
+    const el = $('#ai-content');
+    el.innerHTML = '';
+    if(p.overview){
+      const o = document.createElement('p'); o.className='ai-overview'; o.textContent=p.overview; el.appendChild(o);
+    }
+    if(Array.isArray(p.strengths) && p.strengths.length){ el.appendChild(makeAiList('Strengths', p.strengths)); }
+    if(Array.isArray(p.focusAreas) && p.focusAreas.length){ el.appendChild(makeAiList('Focus on next', p.focusAreas)); }
+    if(p.tip){
+      const t = document.createElement('p'); t.className='ai-tip';
+      const strong = document.createElement('strong'); strong.textContent='Tip: ';
+      t.appendChild(strong); t.appendChild(document.createTextNode(p.tip));
+      el.appendChild(t);
+    }
+  }
+  function makeAiList(label, items){
+    const wrap = document.createElement('div'); wrap.className='ai-list';
+    const h = document.createElement('p'); h.className='ai-list-label'; h.textContent=label;
+    wrap.appendChild(h);
+    const ul = document.createElement('ul');
+    items.forEach(function(i){ const li=document.createElement('li'); li.textContent=i; ul.appendChild(li); });
+    wrap.appendChild(ul);
+    return wrap;
+  }
+
+  /* ---------------- sample download / help ---------------- */
+  function downloadSample(){
+    const blob = new Blob([JSON.stringify(SAMPLE_QUIZ, null, 2)], { type:'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'sample-quiz.json';
+    document.body.appendChild(a); a.click(); a.remove();
+    URL.revokeObjectURL(url);
+  }
+  function openHelp(){ $('#help-modal').hidden = false; }
+  function closeHelp(){ $('#help-modal').hidden = true; }
+
+  /* ---------------- wiring ---------------- */
+  $('#btn-upload').addEventListener('click', function(){ $('#file-input').click(); });
+  $('#file-input').addEventListener('change', function(e){ if(e.target.files[0]) handleFile(e.target.files[0]); });
+  $('#btn-demo').addEventListener('click', function(){ loadQuiz(SAMPLE_QUIZ, 'sample set'); });
+  $('#btn-start').addEventListener('click', startQuiz);
+  $('#btn-prev').addEventListener('click', goPrev);
+  $('#btn-next').addEventListener('click', goNext);
+  $('#btn-quit').addEventListener('click', function(){ stopTimer(); showScreen('screen-cover'); });
+  $('#btn-retake').addEventListener('click', startQuiz);
+  $('#btn-new-file').addEventListener('click', function(){ showScreen('screen-cover'); });
+  $('#btn-ai-summary').addEventListener('click', requestAiSummary);
+  $('#btn-help').addEventListener('click', openHelp);
+  $('#btn-help-close').addEventListener('click', closeHelp);
+  $('#btn-sample-download').addEventListener('click', downloadSample);
+  $('#btn-sample-download-2').addEventListener('click', downloadSample);
+  $('#help-modal').addEventListener('click', function(e){ if(e.target.id==='help-modal') closeHelp(); });
+
+  const cover = $('#screen-cover');
+  ['dragover','dragenter'].forEach(function(evt){
+    cover.addEventListener(evt, function(e){ e.preventDefault(); });
+  });
+  cover.addEventListener('drop', function(e){
+    e.preventDefault();
+    if(e.dataTransfer.files[0]) handleFile(e.dataTransfer.files[0]);
+  });
+
+  document.title = APP_NAME + ' — Multiple Choice Practice & Test App';
+})();
+</script>
+</body>
+</html>
