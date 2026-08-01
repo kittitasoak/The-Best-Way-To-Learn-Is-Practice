@@ -1,0 +1,1206 @@
+{
+  "title": "ISC2 Certified in Cybersecurity (CC) — Practice Set",
+  "instantFeedback": true,
+  "questions": [
+    {
+      "topic": "Security Principles",
+      "question": "A hospital's patient records database suffers a hardware failure, making records temporarily inaccessible to physicians, though the data itself remains unaltered and was never disclosed. Which element of information assurance has been most directly violated?",
+      "choices": [
+        { "text": "Confidentiality", "explanation": "Incorrect. No unauthorized disclosure occurred — the data was never exposed to anyone who shouldn't see it." },
+        { "text": "Integrity", "explanation": "Incorrect. The data itself was not altered, corrupted, or tampered with." },
+        { "text": "Availability", "explanation": "Correct. Authorized users (physicians) could not access the data when needed, which is a direct availability failure." },
+        { "text": "Non-repudiation", "explanation": "Incorrect. Non-repudiation concerns proving an action was taken and cannot be denied; that isn't at issue here." }
+      ],
+      "correctIndex": 2,
+      "explanation": "The CIA triad's 'Availability' pillar means authorized users can access information when required. A system outage that blocks access — without altering or exposing data — is an availability failure, not a confidentiality or integrity one."
+    },
+    {
+      "topic": "Security Principles",
+      "question": "An organization requires employees to swipe a smart card AND enter a PIN to enter the data center. What authentication concept does this demonstrate?",
+      "choices": [
+        { "text": "Single-factor authentication", "explanation": "Incorrect. Two distinct factor types are being used, not one." },
+        { "text": "Multi-factor authentication (something you have + something you know)", "explanation": "Correct. The smart card is 'something you have' and the PIN is 'something you know' — two independent factor categories." },
+        { "text": "Non-repudiation", "explanation": "Incorrect. Non-repudiation is about preventing denial of an action after the fact, not about proving identity at login." },
+        { "text": "Role-based access control", "explanation": "Incorrect. RBAC governs what an authenticated user can do, not how they prove who they are." }
+      ],
+      "correctIndex": 1,
+      "explanation": "MFA combines two or more independent categories of authentication factors (something you know, have, or are) to reduce the risk of a single compromised credential granting access."
+    },
+    {
+      "topic": "Security Principles",
+      "question": "After identifying a security risk, a company decides to purchase a cyber-insurance policy instead of remediating the underlying vulnerability. Which risk treatment strategy is this?",
+      "choices": [
+        { "text": "Risk avoidance", "explanation": "Incorrect. Avoidance means eliminating the activity that creates the risk entirely; the company is still exposed to the vulnerability." },
+        { "text": "Risk mitigation", "explanation": "Incorrect. Mitigation means reducing the likelihood or impact through controls; no technical control was applied here." },
+        { "text": "Risk transfer", "explanation": "Correct. Insurance shifts the financial impact of the risk to a third party, which is the definition of risk transfer." },
+        { "text": "Risk acceptance", "explanation": "Incorrect. Acceptance means knowingly taking on the risk with no compensating action; buying insurance is an active step to offset impact." }
+      ],
+      "correctIndex": 2,
+      "explanation": "The four standard risk treatment options are avoid, mitigate, transfer, and accept. Paying a third party (an insurer) to absorb potential loss is the textbook definition of risk transfer."
+    },
+    {
+      "topic": "Security Principles",
+      "question": "A company determines that a proposed control costs more than the potential loss it would prevent, and formally documents a decision to proceed without implementing it. What is this an example of?",
+      "choices": [
+        { "text": "Risk transfer", "explanation": "Incorrect. No third party is taking on the risk or cost." },
+        { "text": "Risk acceptance", "explanation": "Correct. The organization is knowingly tolerating the risk because the cost of treatment outweighs the benefit, and this decision is formally documented." },
+        { "text": "Risk avoidance", "explanation": "Incorrect. Avoidance requires eliminating the risky activity altogether, not simply continuing without a control." },
+        { "text": "Risk mitigation", "explanation": "Incorrect. Mitigation requires implementing some control to reduce the risk; none was applied." }
+      ],
+      "correctIndex": 1,
+      "explanation": "When the cost of a control exceeds the value it protects, organizations often formally accept the risk, documenting the rationale for audit and governance purposes."
+    },
+    {
+      "topic": "Security Principles",
+      "question": "A guard stationed at a building entrance checks employee ID badges before allowing entry. What category of security control does this represent?",
+      "choices": [
+        { "text": "Technical control", "explanation": "Incorrect. Technical controls are implemented through technology (e.g., firewalls, encryption), not personnel actions." },
+        { "text": "Administrative control", "explanation": "Incorrect. Administrative controls are policies and procedures (e.g., background checks, training), not the physical act of guarding a door." },
+        { "text": "Physical control", "explanation": "Correct. A guard verifying credentials at a physical entry point is a physical security control protecting the facility itself." },
+        { "text": "Corrective control", "explanation": "Incorrect. Corrective controls fix damage after an incident; this is a preventive, physical measure." }
+      ],
+      "correctIndex": 2,
+      "explanation": "Security controls are broadly categorized as technical, administrative, or physical. Guards, locks, badges, and CCTV are classic physical controls that protect tangible spaces and assets."
+    },
+    {
+      "topic": "Security Principles",
+      "question": "Which type of governance document is MOST likely to specify a mandatory, exact requirement — such as 'all laptops must use AES-256 full-disk encryption'?",
+      "choices": [
+        { "text": "Policy", "explanation": "Incorrect. Policies state high-level intent (e.g., 'all devices must be encrypted') but rarely specify exact technical parameters." },
+        { "text": "Standard", "explanation": "Correct. Standards provide specific, mandatory technical requirements that support a policy, such as the exact encryption algorithm and key length." },
+        { "text": "Guideline", "explanation": "Incorrect. Guidelines are recommended, not mandatory, practices." },
+        { "text": "Procedure", "explanation": "Incorrect. Procedures describe step-by-step instructions for performing a task, not the requirement itself." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Governance documents form a hierarchy: policies set direction, standards set mandatory specifics, procedures give step-by-step instructions, and guidelines offer optional best-practice advice."
+    },
+    {
+      "topic": "Security Principles",
+      "question": "According to the ISC2 Code of Ethics, which statement reflects the FIRST and highest-priority canon members must uphold?",
+      "choices": [
+        { "text": "Advance and protect the profession.", "explanation": "Incorrect. This is the fourth canon, addressing the profession's reputation, not the first priority." },
+        { "text": "Provide diligent and competent service to principals.", "explanation": "Incorrect. This is the third canon, focused on service quality to employers/clients." },
+        { "text": "Protect society, the common good, necessary public trust and confidence, and the infrastructure.", "explanation": "Correct. This is the first and highest-priority canon — the public interest takes precedence over all other obligations." },
+        { "text": "Act honorably, honestly, justly, responsibly, and legally.", "explanation": "Incorrect. This is the second canon, concerning personal conduct." }
+      ],
+      "correctIndex": 2,
+      "explanation": "The four ISC2 canons are ordered by priority, and protecting society and the public trust comes first — above obligations to employers, the profession, or oneself."
+    },
+    {
+      "topic": "Security Principles",
+      "question": "A banking system digitally signs each transaction so auditors can later prove exactly who submitted it, and the sender cannot credibly deny doing so. This capability primarily demonstrates:",
+      "choices": [
+        { "text": "Confidentiality", "explanation": "Incorrect. Confidentiality is about preventing unauthorized disclosure, not proving who performed an action." },
+        { "text": "Availability", "explanation": "Incorrect. Availability concerns access to systems and data, which isn't the focus of this scenario." },
+        { "text": "Non-repudiation", "explanation": "Correct. Digital signatures bind an action to an identity in a way that cannot be credibly denied later — the definition of non-repudiation." },
+        { "text": "Authentication", "explanation": "Incorrect. Authentication verifies identity at the time of login/action, but the scenario emphasizes the inability to deny the action afterward, which is non-repudiation." }
+      ],
+      "correctIndex": 2,
+      "explanation": "Non-repudiation ensures that a party cannot deny having performed an action, typically achieved through mechanisms like digital signatures and audit trails."
+    },
+    {
+      "topic": "Business Continuity, DR & Incident Response",
+      "question": "Which metric defines the maximum amount of data an organization can tolerate losing, measured backward in time from a disruption?",
+      "choices": [
+        { "text": "Recovery Time Objective (RTO)", "explanation": "Incorrect. RTO measures how long it should take to restore a system or process, not how much data can be lost." },
+        { "text": "Recovery Point Objective (RPO)", "explanation": "Correct. RPO defines the maximum tolerable point in time to which data must be restored, effectively capping acceptable data loss." },
+        { "text": "Maximum Tolerable Downtime (MTD)", "explanation": "Incorrect. MTD is the total time a business function can be unavailable before causing unacceptable harm, not a data-loss metric." },
+        { "text": "Service-Level Agreement (SLA)", "explanation": "Incorrect. An SLA is a contractual performance commitment, not a business continuity metric." }
+      ],
+      "correctIndex": 1,
+      "explanation": "RPO answers 'how much data can we afford to lose?' while RTO answers 'how quickly must we be back online?' — a common point of confusion on the exam."
+    },
+    {
+      "topic": "Business Continuity, DR & Incident Response",
+      "question": "A company maintains a fully staffed, fully equipped duplicate data center that mirrors production in real time and can take over operations within minutes of a primary site outage. This is an example of a:",
+      "choices": [
+        { "text": "Cold site", "explanation": "Incorrect. A cold site has basic infrastructure (power, space) but no ready systems or data — it takes days to weeks to activate." },
+        { "text": "Warm site", "explanation": "Incorrect. A warm site is partially equipped with some hardware and data but still requires hours to fully activate." },
+        { "text": "Hot site", "explanation": "Correct. A hot site is a fully operational, near real-time duplicate facility that can take over within minutes." },
+        { "text": "Reciprocal agreement", "explanation": "Incorrect. A reciprocal agreement is a mutual-aid arrangement between two organizations to use each other's facilities, not a dedicated owned site." }
+      ],
+      "correctIndex": 2,
+      "explanation": "DR sites exist on a spectrum from cold (minimal, slow) to warm (partial) to hot (fully ready, fastest failover). A near-instant failover facility is a hot site."
+    },
+    {
+      "topic": "Business Continuity, DR & Incident Response",
+      "question": "During an active incident, an analyst disconnects an infected workstation from the network to stop malware from spreading to other systems. Which phase of incident response does this action belong to?",
+      "choices": [
+        { "text": "Preparation", "explanation": "Incorrect. Preparation happens before an incident occurs (policies, tools, training), not during active response." },
+        { "text": "Detection and analysis", "explanation": "Incorrect. This phase involves identifying and confirming that an incident occurred, which has already happened by this point." },
+        { "text": "Containment, eradication, and recovery", "explanation": "Correct. Isolating an infected host to stop the spread of malware is a classic containment action." },
+        { "text": "Post-incident activity", "explanation": "Incorrect. Post-incident activity (lessons learned, reporting) occurs after the threat has been fully resolved." }
+      ],
+      "correctIndex": 2,
+      "explanation": "Incident response generally follows: preparation → detection/analysis → containment/eradication/recovery → post-incident activity. Isolating a device to limit damage is containment."
+    },
+    {
+      "topic": "Access Controls Concepts",
+      "question": "In a Mandatory Access Control (MAC) model, who ultimately determines whether a subject may access an object?",
+      "choices": [
+        { "text": "The object's owner", "explanation": "Incorrect. Owner-determined access is the definition of Discretionary Access Control (DAC), not MAC." },
+        { "text": "The system, based on security labels/classifications set by a central authority", "explanation": "Correct. In MAC, access decisions are enforced by the system according to fixed classification labels (e.g., Confidential, Secret) set centrally — individual users cannot override them." },
+        { "text": "The subject's direct manager", "explanation": "Incorrect. Managers do not individually grant access in a MAC model; a central policy authority does." },
+        { "text": "The subject requesting access", "explanation": "Incorrect. Subjects never self-authorize their own access in any standard access control model." }
+      ],
+      "correctIndex": 1,
+      "explanation": "MAC is common in government/military systems, where a central authority assigns classification labels and the system — not individual users — enforces access based on clearance level."
+    },
+    {
+      "topic": "Access Controls Concepts",
+      "question": "A hospital grants system permissions based on job title, so every nurse automatically receives identical access rights regardless of who specifically holds the position. This is an example of:",
+      "choices": [
+        { "text": "Discretionary Access Control (DAC)", "explanation": "Incorrect. DAC lets individual resource owners decide access on a case-by-case basis, not by job title." },
+        { "text": "Mandatory Access Control (MAC)", "explanation": "Incorrect. MAC uses classification labels enforced centrally, not job-function-based grouping." },
+        { "text": "Role-Based Access Control (RBAC)", "explanation": "Correct. RBAC assigns permissions to roles (e.g., 'Nurse') rather than individuals, so everyone in that role inherits the same access." },
+        { "text": "Rule-Based Access Control", "explanation": "Incorrect. Rule-based control applies conditional if-then rules (e.g., time-of-day restrictions), not role membership." }
+      ],
+      "correctIndex": 2,
+      "explanation": "RBAC simplifies administration by tying permissions to a role rather than to each individual user, which is exactly what's described here."
+    },
+    {
+      "topic": "Access Controls Concepts",
+      "question": "A junior help desk technician is granted full domain administrator rights 'just in case' they're needed later, even though the technician's daily tasks only require password-reset privileges. This most directly violates which principle?",
+      "choices": [
+        { "text": "Segregation of duties", "explanation": "Incorrect. Segregation of duties is about splitting critical tasks among multiple people to prevent fraud, not about excessive individual privilege." },
+        { "text": "Principle of least privilege", "explanation": "Correct. Least privilege requires granting only the minimum access necessary to perform a job function — granting admin rights 'just in case' clearly violates this." },
+        { "text": "Non-repudiation", "explanation": "Incorrect. Non-repudiation concerns proving who performed an action, unrelated to over-provisioning access." },
+        { "text": "Defense in depth", "explanation": "Incorrect. Defense in depth is about layering multiple controls, not about individual privilege levels." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Least privilege minimizes the attack surface and insider-threat risk by ensuring users only have the access their role strictly requires."
+    },
+    {
+      "topic": "Access Controls Concepts",
+      "question": "To reduce fraud risk, a company requires that the employee who initiates a wire transfer request cannot also be the one who approves it. This control is an example of:",
+      "choices": [
+        { "text": "Least privilege", "explanation": "Incorrect. Least privilege limits how much access one person has, but doesn't specifically address splitting a single process between two people." },
+        { "text": "Segregation of duties", "explanation": "Correct. Splitting a sensitive process (initiate vs. approve) between two different people so no single individual can complete it alone is the definition of segregation of duties." },
+        { "text": "Mandatory access control", "explanation": "Incorrect. MAC is about classification-based access enforcement, unrelated to splitting a workflow between roles." },
+        { "text": "Discretionary access control", "explanation": "Incorrect. DAC concerns owner-granted access to resources, not process-level checks and balances." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Segregation of duties prevents any one person from having enough control over a process to commit and conceal fraud without collusion."
+    },
+    {
+      "topic": "Access Controls Concepts",
+      "question": "Which of the following is a PREVENTIVE physical access control, rather than a detective one?",
+      "choices": [
+        { "text": "Reviewing CCTV footage after an incident", "explanation": "Incorrect. Reviewing footage after the fact is detective — it identifies what happened, but doesn't stop it from happening." },
+        { "text": "Auditing security guard patrol logs", "explanation": "Incorrect. Log auditing is also detective in nature, used to verify or investigate after the fact." },
+        { "text": "A mantrap at the facility entrance", "explanation": "Correct. A mantrap physically prevents unauthorized entry (e.g., tailgating) before it can occur, making it a preventive control." },
+        { "text": "Reviewing an alarm system's audit trail", "explanation": "Incorrect. Reviewing an audit trail happens after an event and is detective, not preventive." }
+      ],
+      "correctIndex": 2,
+      "explanation": "Preventive controls stop an incident before it occurs (locks, mantraps, badge readers); detective controls identify that something already happened (logs, CCTV review, alarms review)."
+    },
+    {
+      "topic": "Access Controls Concepts",
+      "question": "A user creates a shared folder and personally decides which coworkers get read or write access to it. This is characteristic of:",
+      "choices": [
+        { "text": "Mandatory Access Control (MAC)", "explanation": "Incorrect. MAC removes discretion from individual users — access is enforced by the system based on fixed labels." },
+        { "text": "Discretionary Access Control (DAC)", "explanation": "Correct. DAC allows the resource owner to decide, at their discretion, who else can access the resource and at what level." },
+        { "text": "Role-Based Access Control (RBAC)", "explanation": "Incorrect. RBAC ties access to predefined roles, not to an individual owner's personal decisions." },
+        { "text": "Attribute-Based Access Control (ABAC)", "explanation": "Incorrect. ABAC grants access based on a combination of attributes (user, resource, environment), not one owner's discretion." }
+      ],
+      "correctIndex": 1,
+      "explanation": "DAC is the most flexible but least centrally controlled model — the resource owner, not a central authority or system, determines who else can access it."
+    },
+    {
+      "topic": "Access Controls Concepts",
+      "question": "An unescorted visitor is discovered inside a restricted server room after following an employee through a badge-controlled door without swiping their own credential. This scenario BEST illustrates a failure related to:",
+      "choices": [
+        { "text": "Logical access control", "explanation": "Incorrect. No computer system or network account was involved — this is a physical-world breach." },
+        { "text": "Physical access control (tailgating/piggybacking)", "explanation": "Correct. Following an authorized person through a secured door without independently authenticating is a classic tailgating/piggybacking failure of physical access control." },
+        { "text": "Risk transfer", "explanation": "Incorrect. No risk was shifted to a third party; this describes a control failure, not a risk-treatment decision." },
+        { "text": "Change management", "explanation": "Incorrect. Change management governs how IT changes are approved and documented, unrelated to physical building entry." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Tailgating (or piggybacking) is one of the most common physical access control failures and a frequent test topic — badge systems only work if each individual authenticates separately."
+    },
+    {
+      "topic": "Network Security",
+      "question": "At which layer of the OSI model does a switch primarily operate when forwarding frames based on MAC addresses?",
+      "choices": [
+        { "text": "Layer 1 (Physical)", "explanation": "Incorrect. Layer 1 deals with raw bits, cabling, and signals — not addressing or frame forwarding." },
+        { "text": "Layer 2 (Data Link)", "explanation": "Correct. Switches forward frames using MAC addresses, which is a Data Link layer function." },
+        { "text": "Layer 3 (Network)", "explanation": "Incorrect. Layer 3 uses IP addresses for routing — that's the function of a router, not a standard switch." },
+        { "text": "Layer 4 (Transport)", "explanation": "Incorrect. Layer 4 handles end-to-end connections and ports (TCP/UDP), unrelated to MAC-based frame forwarding." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Layer 2 devices like switches use MAC addresses to forward frames within a local network segment, distinguishing them from Layer 3 routers that use IP addresses."
+    },
+    {
+      "topic": "Network Security",
+      "question": "An attacker secretly intercepts and relays communication between a user and their banking website, potentially altering messages, while both parties believe they are communicating directly. This is an example of:",
+      "choices": [
+        { "text": "Distributed Denial-of-Service (DDoS)", "explanation": "Incorrect. DDoS floods a target with traffic to disrupt availability; it doesn't involve intercepting or relaying communication." },
+        { "text": "Man-in-the-Middle (MITM) attack", "explanation": "Correct. Secretly intercepting and potentially altering communication between two parties who believe they're talking directly is the definition of a MITM attack." },
+        { "text": "Side-channel attack", "explanation": "Incorrect. Side-channel attacks exploit indirect information like power consumption or timing, not direct interception of communication." },
+        { "text": "Trojan", "explanation": "Incorrect. A Trojan is malware disguised as legitimate software, not a network interception technique." }
+      ],
+      "correctIndex": 1,
+      "explanation": "MITM attacks position the attacker between two communicating parties, allowing eavesdropping and potential message tampering without either party's knowledge."
+    },
+    {
+      "topic": "Network Security",
+      "question": "A malicious file disguises itself as a legitimate invoice attachment. Once opened, it installs a backdoor but does not self-replicate or spread to other files or systems on its own. This is best classified as a:",
+      "choices": [
+        { "text": "Worm", "explanation": "Incorrect. Worms self-replicate and spread across networks autonomously — this file does not do that." },
+        { "text": "Virus", "explanation": "Incorrect. A virus typically attaches to and replicates through host files; this scenario describes no self-replication." },
+        { "text": "Trojan", "explanation": "Correct. A Trojan disguises itself as legitimate software to trick a user into running it, and does not self-replicate — matching this scenario exactly." },
+        { "text": "Logic bomb", "explanation": "Incorrect. A logic bomb lies dormant until triggered by a specific condition (like a date); this malware activates immediately upon opening, not on a trigger condition." }
+      ],
+      "correctIndex": 2,
+      "explanation": "Trojans rely on deception (posing as something legitimate) rather than self-replication to spread, distinguishing them from viruses and worms."
+    },
+    {
+      "topic": "Network Security",
+      "question": "What is the key functional difference between an IDS and an IPS?",
+      "choices": [
+        { "text": "An IDS actively blocks malicious traffic, while an IPS only generates alerts.", "explanation": "Incorrect. This reverses the actual roles — it's the IPS that actively blocks traffic." },
+        { "text": "An IDS monitors and alerts on suspicious traffic, while an IPS can actively block or prevent it.", "explanation": "Correct. IDS is a passive/detective monitoring system, while IPS sits inline and can actively intervene to stop malicious traffic in real time." },
+        { "text": "An IDS only works at the host level, while an IPS only works at the network level.", "explanation": "Incorrect. Both IDS and IPS have host-based and network-based variants (HIDS/NIDS, HIPS/NIPS) — this isn't the defining distinction." },
+        { "text": "There is no meaningful functional difference between the two.", "explanation": "Incorrect. There is a clear functional difference: detection versus active prevention." }
+      ],
+      "correctIndex": 1,
+      "explanation": "IDS = Intrusion Detection System (detects and alerts, passive). IPS = Intrusion Prevention System (detects and actively blocks, inline/active)."
+    },
+    {
+      "topic": "Network Security",
+      "question": "An organization places its public-facing web server in a separate network segment, isolated from the internal LAN, so external users can reach it without gaining direct access to internal resources. This segment is known as a:",
+      "choices": [
+        { "text": "VLAN", "explanation": "Incorrect. A VLAN is a general method for logically segmenting a network, but the specific segment used to isolate public-facing services from the internal network is called a DMZ." },
+        { "text": "DMZ (Demilitarized Zone)", "explanation": "Correct. A DMZ is a buffer network segment that exposes public-facing services to the internet while shielding the internal LAN from direct exposure." },
+        { "text": "VPN", "explanation": "Incorrect. A VPN creates an encrypted tunnel for remote connectivity; it doesn't describe a segmented zone for public servers." },
+        { "text": "NAC zone", "explanation": "Incorrect. Network Access Control (NAC) enforces device compliance before granting network access; it isn't the term for a public-facing buffer segment." }
+      ],
+      "correctIndex": 1,
+      "explanation": "A DMZ sits between the internet and the internal network, hosting public-facing servers so that even if compromised, attackers don't gain a direct path into internal systems."
+    },
+    {
+      "topic": "Network Security",
+      "question": "A company subscribes to a cloud provider that supplies virtualized servers, storage, and networking, but the company itself must install, configure, and maintain its own operating system and applications. This describes:",
+      "choices": [
+        { "text": "Software as a Service (SaaS)", "explanation": "Incorrect. SaaS provides fully managed, ready-to-use applications (e.g., webmail); the customer manages nothing beyond user settings." },
+        { "text": "Platform as a Service (PaaS)", "explanation": "Incorrect. PaaS provides a managed platform/runtime for deploying applications, but the provider manages the OS — the customer only manages the app and data." },
+        { "text": "Infrastructure as a Service (IaaS)", "explanation": "Correct. IaaS provides raw virtualized compute, storage, and networking, leaving OS installation, configuration, and maintenance to the customer." },
+        { "text": "Function as a Service (FaaS)", "explanation": "Incorrect. FaaS lets customers run individual functions/code without managing servers or OS at all — the opposite of this scenario." }
+      ],
+      "correctIndex": 2,
+      "explanation": "Cloud service models exist on a management spectrum: IaaS (most customer responsibility) → PaaS → SaaS (least customer responsibility, most provider-managed)."
+    },
+    {
+      "topic": "Network Security",
+      "question": "An organization deploys a firewall, endpoint antivirus, network segmentation, and employee security training all at once rather than relying on any single safeguard. This strategy best exemplifies:",
+      "choices": [
+        { "text": "Risk transfer", "explanation": "Incorrect. No risk is being shifted to a third party; multiple internal controls are being layered." },
+        { "text": "Defense in depth", "explanation": "Correct. Layering multiple, independent controls so that if one fails others still provide protection is the definition of defense in depth." },
+        { "text": "Principle of least privilege", "explanation": "Incorrect. Least privilege concerns limiting individual access rights, not layering diverse security controls." },
+        { "text": "Segregation of duties", "explanation": "Incorrect. Segregation of duties splits a single process between multiple people, unrelated to layering technical and administrative controls." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Defense in depth assumes any single control can fail, so multiple layered controls (technical, administrative, physical) are used together to reduce overall risk."
+    },
+    {
+      "topic": "Security Operations",
+      "question": "A company uses the same secret key to both encrypt and decrypt sensitive files stored on a server. This describes:",
+      "choices": [
+        { "text": "Asymmetric encryption", "explanation": "Incorrect. Asymmetric encryption uses a mathematically linked key pair (public/private), not a single shared key." },
+        { "text": "Symmetric encryption", "explanation": "Correct. Symmetric encryption uses one shared secret key for both encryption and decryption." },
+        { "text": "Hashing", "explanation": "Incorrect. Hashing is a one-way function that produces a fixed-length digest and cannot be reversed to recover the original data — it isn't encryption at all." },
+        { "text": "Digital signature", "explanation": "Incorrect. A digital signature verifies authenticity and integrity using asymmetric keys; it doesn't describe encrypting/decrypting with one shared key." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Symmetric encryption (e.g., AES) is fast and efficient for bulk data but requires securely sharing the single key between all parties who need access."
+    },
+    {
+      "topic": "Security Operations",
+      "question": "Which statement BEST describes the primary purpose of a cryptographic hash function in security operations?",
+      "choices": [
+        { "text": "To allow two parties to securely exchange a secret encryption key.", "explanation": "Incorrect. Key exchange is handled by protocols like Diffie-Hellman, not hash functions." },
+        { "text": "To verify data integrity by producing a fixed-length, unique digest of the input.", "explanation": "Correct. Hashing generates a fixed-length fingerprint of data; even a tiny change in input produces a drastically different hash, making it ideal for verifying integrity." },
+        { "text": "To encrypt data so only the intended recipient can decrypt it.", "explanation": "Incorrect. Hashing is one-way and cannot be decrypted — it's not used for confidentiality of the original data." },
+        { "text": "To authenticate a user's identity during login.", "explanation": "Incorrect. While hashed values are often stored for password comparison, the hash function itself exists to verify data integrity, not to perform identity authentication directly." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Hashing is primarily used to detect whether data has been altered — comparing a freshly computed hash against a known-good hash reveals any tampering or corruption."
+    },
+    {
+      "topic": "Security Operations",
+      "question": "Before placing a newly built server into production, an administrator disables unused services, removes default accounts, and applies the latest security patches. This process is known as:",
+      "choices": [
+        { "text": "Change management", "explanation": "Incorrect. Change management is the formal process of documenting, approving, and tracking changes over time — not the initial act of securing a system's configuration." },
+        { "text": "System hardening", "explanation": "Correct. Reducing a system's attack surface by disabling unnecessary services, removing default accounts, and patching is the definition of system hardening." },
+        { "text": "Data classification", "explanation": "Incorrect. Data classification labels information by sensitivity level; it has nothing to do with server configuration." },
+        { "text": "Incident triage", "explanation": "Incorrect. Triage is the process of prioritizing incidents during response, unrelated to pre-production configuration." }
+      ],
+      "correctIndex": 1,
+      "explanation": "System hardening reduces the number of potential entry points an attacker could exploit by minimizing unnecessary services, accounts, and unpatched vulnerabilities."
+    },
+    {
+      "topic": "Security Operations",
+      "question": "According to best-practice data handling policy, what should generally happen to sensitive data once it passes its defined retention period?",
+      "choices": [
+        { "text": "It should be moved to a personal workstation for informal archiving.", "explanation": "Incorrect. Moving sensitive data to an unmanaged personal device increases risk and violates data handling policy." },
+        { "text": "It should be securely destroyed according to organizational policy.", "explanation": "Correct. Once data no longer needs to be retained, secure destruction (e.g., cryptographic erasure, physical shredding) minimizes the risk of unnecessary exposure." },
+        { "text": "It should be left on the production server indefinitely for future reference.", "explanation": "Incorrect. Retaining data beyond its policy-defined period increases liability and exposure risk without business justification." },
+        { "text": "It should be emailed to a backup administrator for safekeeping.", "explanation": "Incorrect. Emailing sensitive data outside approved storage/destruction processes creates unnecessary exposure and doesn't fulfill retention/destruction obligations." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Data handling policies typically require secure destruction at the end of a data's retention period to minimize the organization's exposure and storage liability."
+    },
+    {
+      "topic": "Security Operations",
+      "question": "An employee receives an urgent email appearing to be from the CEO, demanding an immediate wire transfer and pressuring the employee to bypass normal approval steps. This is a classic example of:",
+      "choices": [
+        { "text": "A side-channel attack", "explanation": "Incorrect. Side-channel attacks exploit physical implementation characteristics (timing, power use), not email-based deception." },
+        { "text": "Social engineering (a 'CEO fraud' / pretexting attempt)", "explanation": "Correct. This scenario uses impersonation and urgency to manipulate a human target into bypassing controls — the hallmark of social engineering." },
+        { "text": "A brute-force attack", "explanation": "Incorrect. Brute-force attacks involve systematically guessing credentials; no password guessing is occurring here." },
+        { "text": "A man-in-the-middle attack", "explanation": "Incorrect. MITM involves intercepting communication between two parties; this is a direct deceptive message crafted to manipulate the recipient, not an interception." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Social engineering exploits human psychology — urgency, authority, and fear — rather than technical vulnerabilities, which is why security awareness training is a required exam topic."
+    },
+    {
+      "topic": "Security Principles",
+      "question": "An attacker exfiltrates a database of customer Social Security numbers without altering any records or affecting system uptime. Which principle was violated?",
+      "choices": [
+        { "text": "Confidentiality", "explanation": "Correct. Unauthorized disclosure of sensitive data to someone not entitled to see it is a confidentiality violation, regardless of whether the data was changed or systems stayed online." },
+        { "text": "Integrity", "explanation": "Incorrect. Nothing was altered or corrupted — the records remain accurate." },
+        { "text": "Availability", "explanation": "Incorrect. Systems remained accessible and operational throughout." },
+        { "text": "Non-repudiation", "explanation": "Incorrect. This scenario doesn't involve someone denying an action they took." }
+      ],
+      "correctIndex": 0,
+      "explanation": "Data theft that doesn't modify or disrupt systems is a textbook confidentiality breach — the most commonly tested CIA-triad scenario on the exam."
+    },
+    {
+      "topic": "Security Principles",
+      "question": "A company implements strict confidentiality controls over customer financial data. Which additional information-assurance concept specifically addresses an individual's right to control how their own personal information is collected, used, and shared?",
+      "choices": [
+        { "text": "Integrity", "explanation": "Incorrect. Integrity concerns accuracy and trustworthiness of data, not an individual's control over their personal information." },
+        { "text": "Privacy", "explanation": "Correct. Privacy specifically addresses an individual's rights over their own personal data — confidentiality protects data from unauthorized disclosure, while privacy governs consent and appropriate use." },
+        { "text": "Availability", "explanation": "Incorrect. Availability is about access to systems and data, unrelated to individual data rights." },
+        { "text": "Non-repudiation", "explanation": "Incorrect. Non-repudiation is about proving an action occurred and cannot be denied." }
+      ],
+      "correctIndex": 1,
+      "explanation": "The CC exam distinguishes privacy (an individual's rights over their personal data) from confidentiality (protecting any sensitive data from unauthorized access) — a subtle but frequently tested distinction."
+    },
+    {
+      "topic": "Security Principles",
+      "question": "A company's web servers run outdated, unpatched software that could be exploited by attackers. What term describes the unpatched software itself?",
+      "choices": [
+        { "text": "Risk", "explanation": "Incorrect. Risk is the potential for loss when a threat exploits a vulnerability — it's the combination, not the weakness alone." },
+        { "text": "Vulnerability", "explanation": "Correct. A vulnerability is a weakness in a system (like unpatched software) that could be exploited by a threat." },
+        { "text": "Threat actor", "explanation": "Incorrect. A threat actor is the entity (person or group) that might exploit the weakness, not the weakness itself." },
+        { "text": "Threat", "explanation": "Incorrect. A threat is a potential danger that could exploit a vulnerability (e.g., an attacker or malware), not the weakness itself." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Precisely distinguishing vulnerability, threat, and risk is a foundational exam concept: vulnerability = weakness, threat = potential danger, risk = the likelihood and impact of a threat exploiting a vulnerability."
+    },
+    {
+      "topic": "Security Principles",
+      "question": "Which of the following is an example of an administrative control?",
+      "choices": [
+        { "text": "A firewall rule set blocking inbound traffic", "explanation": "Incorrect. This is a technical control, implemented through technology." },
+        { "text": "A mandatory annual security awareness training program", "explanation": "Correct. Training programs, policies, and procedures that govern human behavior are administrative controls." },
+        { "text": "A locked server room door", "explanation": "Incorrect. This is a physical control protecting a tangible space." },
+        { "text": "A perimeter fence around a facility", "explanation": "Incorrect. This is also a physical control." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Administrative controls are policies, procedures, and training that guide human behavior — as opposed to technology (technical) or physical barriers (physical) controls."
+    },
+    {
+      "topic": "Security Principles",
+      "question": "Which governance document type provides optional, recommended best practices rather than a mandatory requirement?",
+      "choices": [
+        { "text": "Policy", "explanation": "Incorrect. Policies state mandatory high-level intent set by management." },
+        { "text": "Standard", "explanation": "Incorrect. Standards are mandatory, specific technical requirements." },
+        { "text": "Guideline", "explanation": "Correct. Guidelines offer recommended, non-mandatory advice on how to achieve a goal, leaving room for judgment." },
+        { "text": "Procedure", "explanation": "Incorrect. Procedures are mandatory, detailed step-by-step instructions." }
+      ],
+      "correctIndex": 2,
+      "explanation": "Of the four governance document types, only guidelines are explicitly non-mandatory — everything else (policy, standard, procedure) carries a compliance requirement."
+    },
+    {
+      "topic": "Security Principles",
+      "question": "A CC-certified professional discovers that following a client's specific instruction would compromise public safety and infrastructure trust. According to the ISC2 Code of Ethics, which obligation takes precedence?",
+      "choices": [
+        { "text": "Providing diligent and competent service to the client (principal)", "explanation": "Incorrect. While important, this is the third canon and is subordinate to protecting the public." },
+        { "text": "Protecting society, the common good, necessary public trust and confidence, and the infrastructure", "explanation": "Correct. This is the first and highest-priority canon in the ISC2 Code of Ethics — it outranks obligations to clients, employers, or the profession." },
+        { "text": "Advancing and protecting the profession", "explanation": "Incorrect. This is the fourth and lowest-priority canon." },
+        { "text": "Acting honorably, honestly, justly, responsibly, and legally", "explanation": "Incorrect. This is the second canon, still subordinate to the first." }
+      ],
+      "correctIndex": 1,
+      "explanation": "The ISC2 canons are explicitly ranked in priority order, with protecting society and public trust always coming first, even above serving a client's specific wishes."
+    },
+    {
+      "topic": "Security Principles",
+      "question": "A fingerprint scanner used to unlock a company laptop is an example of which authentication factor category?",
+      "choices": [
+        { "text": "Something you know", "explanation": "Incorrect. 'Something you know' refers to knowledge-based factors like passwords or PINs." },
+        { "text": "Something you have", "explanation": "Incorrect. 'Something you have' refers to possession-based factors like a smart card or token." },
+        { "text": "Something you are", "explanation": "Correct. Biometric factors like fingerprints, iris scans, and facial recognition fall under 'something you are.'" },
+        { "text": "Somewhere you are", "explanation": "Incorrect. Location-based factors (e.g., GPS or IP geolocation) are a less common fourth category, not applicable to a fingerprint scan." }
+      ],
+      "correctIndex": 2,
+      "explanation": "Authentication factors are grouped as something you know, have, or are (with location sometimes cited as a fourth); biometrics always fall under 'something you are.'"
+    },
+    {
+      "topic": "Security Principles",
+      "question": "A file transfer utility computes a SHA-256 checksum of a file before and after transmission to confirm it wasn't altered in transit. This mechanism primarily protects:",
+      "choices": [
+        { "text": "Confidentiality", "explanation": "Incorrect. Checksums don't prevent unauthorized viewing of data — they verify it hasn't changed." },
+        { "text": "Integrity", "explanation": "Correct. Comparing checksums before and after transfer detects unauthorized modification, directly supporting data integrity." },
+        { "text": "Availability", "explanation": "Incorrect. Checksums don't affect whether the file is accessible." },
+        { "text": "Privacy", "explanation": "Incorrect. Privacy concerns control over personal information, not detecting file tampering." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Hash-based checksums are a classic integrity control — any change to the file, even a single bit, produces a completely different hash value, revealing tampering or corruption."
+    },
+    {
+      "topic": "Business Continuity, DR & Incident Response",
+      "question": "Which statement BEST distinguishes business continuity (BC) from disaster recovery (DR)?",
+      "choices": [
+        { "text": "BC focuses on restoring IT systems after a disaster, while DR focuses on keeping the whole business running during a disruption.", "explanation": "Incorrect. This reverses the actual definitions of BC and DR." },
+        { "text": "BC focuses on keeping essential business functions operating during and after a disruption, while DR focuses specifically on restoring IT systems and infrastructure.", "explanation": "Correct. BC has the broader scope of sustaining critical business operations; DR is a subset focused specifically on IT/technology recovery." },
+        { "text": "BC and DR are interchangeable terms for the exact same process.", "explanation": "Incorrect. Although related, they address different scopes — DR is generally considered a component of the broader BC effort." },
+        { "text": "DR only applies to natural disasters, while BC only applies to cyberattacks.", "explanation": "Incorrect. Both BC and DR apply broadly to any type of disruption, not limited to specific causes." }
+      ],
+      "correctIndex": 1,
+      "explanation": "DR is typically viewed as a subset of BC — DR restores technology and infrastructure, while BC ensures the overall business can continue operating (people, processes, facilities, and technology)."
+    },
+    {
+      "topic": "Business Continuity, DR & Incident Response",
+      "question": "What does Maximum Tolerable Downtime (MTD) represent?",
+      "choices": [
+        { "text": "The exact time required for a backup restoration to complete.", "explanation": "Incorrect. That describes a technical recovery metric, not MTD." },
+        { "text": "The total length of time a business process can be unavailable before causing unacceptable harm to the organization.", "explanation": "Correct. MTD defines the outer limit of acceptable downtime before consequences become severe (e.g., financial loss, regulatory penalty, reputational damage)." },
+        { "text": "The maximum amount of data loss the organization can tolerate.", "explanation": "Incorrect. That describes RPO, not MTD." },
+        { "text": "The average time it takes to detect a security incident.", "explanation": "Incorrect. Detection time is unrelated to MTD, which is a business-impact threshold." }
+      ],
+      "correctIndex": 1,
+      "explanation": "MTD is derived from a Business Impact Analysis (BIA) and represents the point beyond which continued downtime threatens the organization's survival or viability."
+    },
+    {
+      "topic": "Business Continuity, DR & Incident Response",
+      "question": "Before any incident occurs, an organization writes and rehearses its incident response plan, defines team roles, and deploys monitoring tools. Which phase of the incident response lifecycle does this represent?",
+      "choices": [
+        { "text": "Detection and analysis", "explanation": "Incorrect. This phase involves identifying that an incident is actually occurring, which hasn't happened yet in this scenario." },
+        { "text": "Preparation", "explanation": "Correct. Building plans, defining roles, and deploying tools before any incident happens is the preparation phase." },
+        { "text": "Containment, eradication, and recovery", "explanation": "Incorrect. This phase involves actively responding to a confirmed incident, not planning ahead of one." },
+        { "text": "Post-incident activity", "explanation": "Incorrect. This phase involves lessons-learned review after an incident has been resolved." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Preparation is the foundational first phase of incident response — the better prepared an organization is, the faster and more effective its response will be when an actual incident occurs."
+    },
+    {
+      "topic": "Access Controls Concepts",
+      "question": "An access control system grants a contractor access to a file only if they are using a company-issued device, connecting during business hours, and located in an approved country. This is an example of:",
+      "choices": [
+        { "text": "Role-Based Access Control (RBAC)", "explanation": "Incorrect. RBAC bases access purely on assigned role, not on a combination of contextual conditions." },
+        { "text": "Discretionary Access Control (DAC)", "explanation": "Incorrect. DAC relies on the resource owner's individual discretion, not automated contextual rules." },
+        { "text": "Mandatory Access Control (MAC)", "explanation": "Incorrect. MAC relies on fixed classification labels, not multiple dynamic contextual attributes." },
+        { "text": "Attribute-Based Access Control (ABAC)", "explanation": "Correct. ABAC evaluates multiple attributes — device, time, location — together to make a dynamic access decision." }
+      ],
+      "correctIndex": 3,
+      "explanation": "ABAC grants access based on a combination of attributes about the subject, resource, and environment, making it more granular and dynamic than RBAC, DAC, or MAC alone."
+    },
+    {
+      "topic": "Access Controls Concepts",
+      "question": "Warning signage stating 'Premises under 24-hour video surveillance' primarily serves as which type of physical control?",
+      "choices": [
+        { "text": "Preventive control", "explanation": "Incorrect. The sign itself doesn't physically stop entry — it discourages the attempt." },
+        { "text": "Deterrent control", "explanation": "Correct. A deterrent control discourages malicious behavior by signaling consequences or increased risk of getting caught, without physically stopping the act." },
+        { "text": "Detective control", "explanation": "Incorrect. The camera system itself is detective, but the posted sign's function is to discourage, not detect." },
+        { "text": "Corrective control", "explanation": "Incorrect. Corrective controls remediate damage after an incident; a warning sign doesn't do that." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Deterrent controls aim to discourage an attack before it's attempted (signage, visible guards, lighting), distinct from preventive controls that physically block access."
+    },
+    {
+      "topic": "Access Controls Concepts",
+      "question": "Two employees share the same security clearance level, yet one is denied access to a specific classified project file because their job duties don't require it. Which principle does this illustrate, in addition to least privilege?",
+      "choices": [
+        { "text": "Segregation of duties", "explanation": "Incorrect. Segregation of duties splits a process across multiple people to prevent fraud, which isn't described here." },
+        { "text": "Need-to-know", "explanation": "Correct. Need-to-know restricts access to information based on whether it's actually required for a person's job duties, even if they hold sufficient clearance." },
+        { "text": "Discretionary access control", "explanation": "Incorrect. This scenario describes a formal policy-based restriction, not an individual owner's discretionary choice." },
+        { "text": "Role-based access control", "explanation": "Incorrect. RBAC assigns access by role/title; here the distinction is based on specific task-level necessity, not a differing role." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Need-to-know works alongside clearance level in classified environments — holding sufficient clearance is necessary but not sufficient; access is also limited to what's needed for the specific task."
+    },
+    {
+      "topic": "Access Controls Concepts",
+      "question": "Which of the following is a physical access control mechanism used to restrict entry into a secured area?",
+      "choices": [
+        { "text": "Password complexity policy", "explanation": "Incorrect. This is an administrative/logical control governing system credentials, not physical entry." },
+        { "text": "Proximity badge reader at a doorway", "explanation": "Correct. A badge reader controls physical entry into a space and is a classic physical access control." },
+        { "text": "Network firewall", "explanation": "Incorrect. A firewall is a technical control filtering network traffic, not physical entry." },
+        { "text": "VPN client", "explanation": "Incorrect. A VPN provides secure remote network connectivity, unrelated to physical entry." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Physical access controls govern entry to tangible spaces (badge readers, locks, mantraps, guards), distinct from logical/technical controls that govern system or network access."
+    },
+    {
+      "topic": "Access Controls Concepts",
+      "question": "An organization periodically reviews user access rights and revokes permissions no longer needed for an employee's current role. This ongoing process primarily supports:",
+      "choices": [
+        { "text": "Maintaining the principle of least privilege over time", "explanation": "Correct. Access naturally accumulates as employees change roles ('privilege creep'); periodic reviews ensure access stays aligned with current job needs, upholding least privilege." },
+        { "text": "Non-repudiation", "explanation": "Incorrect. Non-repudiation concerns proving who performed an action, unrelated to access reviews." },
+        { "text": "Risk transfer", "explanation": "Incorrect. No risk is being shifted to a third party through an access review." },
+        { "text": "Defense in depth", "explanation": "Incorrect. Defense in depth is about layering diverse controls, not periodically auditing individual access rights." }
+      ],
+      "correctIndex": 0,
+      "explanation": "Regular access reviews (recertification) counter 'privilege creep,' where employees accumulate unnecessary access over time as they change roles — a key least-privilege maintenance activity."
+    },
+    {
+      "topic": "Access Controls Concepts",
+      "question": "Which of the following is a DETECTIVE control rather than a preventive one?",
+      "choices": [
+        { "text": "A turnstile at a building entrance", "explanation": "Incorrect. A turnstile physically blocks entry before it happens, making it preventive." },
+        { "text": "A CCTV camera recording activity in a hallway", "explanation": "Correct. A camera records and reveals what happened, supporting after-the-fact investigation — a detective function, even if it also has some deterrent value." },
+        { "text": "A locked door", "explanation": "Incorrect. A lock physically prevents unauthorized entry, making it preventive." },
+        { "text": "A security guard blocking entry to an unauthorized visitor", "explanation": "Incorrect. Actively blocking entry is a preventive action." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Preventive controls stop an event from happening (locks, turnstiles, guards blocking entry); detective controls identify that an event already occurred (camera footage, logs, alarms)."
+    },
+    {
+      "topic": "Access Controls Concepts",
+      "question": "What is a key disadvantage of Discretionary Access Control (DAC) compared to Role-Based Access Control (RBAC) in a large enterprise?",
+      "choices": [
+        { "text": "DAC requires a central authority to individually assign every single permission.", "explanation": "Incorrect. This describes MAC, not DAC — DAC decentralizes decisions to individual resource owners." },
+        { "text": "DAC can lead to inconsistent, hard-to-audit access decisions since each resource owner decides independently.", "explanation": "Correct. Because access decisions are distributed across many individual owners rather than standardized roles, DAC often results in inconsistent and difficult-to-audit permissions at scale." },
+        { "text": "DAC prevents any user from ever sharing files with others.", "explanation": "Incorrect. DAC is actually defined by allowing owners to share access at their discretion." },
+        { "text": "DAC can only be used in classified government systems.", "explanation": "Incorrect. DAC is common in commercial and everyday systems (e.g., shared drives), while MAC is more typical in classified government systems." }
+      ],
+      "correctIndex": 1,
+      "explanation": "DAC's flexibility is also its weakness at scale — without centralized role definitions, access can become inconsistent and difficult to audit as an organization grows."
+    },
+    {
+      "topic": "Network Security",
+      "question": "What is the PRIMARY function of a network firewall?",
+      "choices": [
+        { "text": "To encrypt data while it's in transit across the network.", "explanation": "Incorrect. Encryption in transit is typically handled by protocols like TLS/VPN, not a firewall's core function." },
+        { "text": "To filter network traffic based on defined rules.", "explanation": "Correct. A firewall's core purpose is to permit or deny traffic based on configured rules (source/destination, port, protocol, etc.)." },
+        { "text": "To detect malware signatures on an individual endpoint.", "explanation": "Incorrect. That's the role of antivirus/endpoint protection software, not a network firewall." },
+        { "text": "To authenticate user login credentials.", "explanation": "Incorrect. Firewalls control traffic flow, not user identity verification." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Firewalls act as gatekeepers, inspecting and filtering traffic according to rule sets, forming a foundational layer of network security infrastructure."
+    },
+    {
+      "topic": "Network Security",
+      "question": "Which port is the default, well-known port for unencrypted HTTP web traffic?",
+      "choices": [
+        { "text": "21", "explanation": "Incorrect. Port 21 is the default port for FTP (File Transfer Protocol) control connections." },
+        { "text": "80", "explanation": "Correct. Port 80 is the well-known default port for unencrypted HTTP traffic." },
+        { "text": "443", "explanation": "Incorrect. Port 443 is used for encrypted HTTPS traffic, not unencrypted HTTP." },
+        { "text": "25", "explanation": "Incorrect. Port 25 is the default port for SMTP email transmission." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Knowing well-known port numbers (80 = HTTP, 443 = HTTPS, 21 = FTP, 25 = SMTP) is a common Domain 4 exam topic under 'Understand computer networking.'"
+    },
+    {
+      "topic": "Network Security",
+      "question": "An employee working remotely connects to the corporate network through an encrypted tunnel over the public internet. Which technology does this describe?",
+      "choices": [
+        { "text": "VLAN", "explanation": "Incorrect. A VLAN logically segments a local network; it doesn't provide encrypted remote connectivity over the internet." },
+        { "text": "VPN (Virtual Private Network)", "explanation": "Correct. A VPN creates an encrypted tunnel that allows a remote user to securely access a private network over a public network like the internet." },
+        { "text": "DMZ", "explanation": "Incorrect. A DMZ is a buffer network zone for exposing public-facing servers, not a remote-access technology." },
+        { "text": "NAC", "explanation": "Incorrect. NAC checks device compliance before granting network access; it doesn't itself provide the encrypted tunnel." }
+      ],
+      "correctIndex": 1,
+      "explanation": "VPNs are the standard technology for securely extending a private network's resources to remote users over an untrusted public network."
+    },
+    {
+      "topic": "Network Security",
+      "question": "Before allowing a laptop to join the corporate network, a system automatically checks that its antivirus is current and OS patches are up to date, denying access if it fails the check. Which technology provides this function?",
+      "choices": [
+        { "text": "Network Access Control (NAC)", "explanation": "Correct. NAC enforces endpoint compliance policies (patch level, antivirus status, etc.) before granting network access." },
+        { "text": "VLAN tagging", "explanation": "Incorrect. VLAN tagging segments traffic logically but doesn't perform compliance checks on devices." },
+        { "text": "A DMZ", "explanation": "Incorrect. A DMZ is a network segment for public-facing servers, unrelated to endpoint compliance checking." },
+        { "text": "A VPN concentrator", "explanation": "Incorrect. A VPN concentrator manages encrypted remote connections; it doesn't inspect endpoint security posture by itself." }
+      ],
+      "correctIndex": 0,
+      "explanation": "NAC solutions enforce security posture requirements (patching, antivirus, configuration) as a condition of network admission, embodying defense-in-depth at the network edge."
+    },
+    {
+      "topic": "Network Security",
+      "question": "An attack floods a target with traffic generated simultaneously from thousands of compromised devices distributed around the world. This is best classified as a:",
+      "choices": [
+        { "text": "Denial-of-Service (DoS) attack from a single source", "explanation": "Incorrect. A traditional DoS originates from one source; this attack is explicitly distributed across many devices." },
+        { "text": "Distributed Denial-of-Service (DDoS) attack", "explanation": "Correct. Traffic generated from many distributed, often compromised, devices (a botnet) targeting availability is the definition of DDoS." },
+        { "text": "Man-in-the-Middle attack", "explanation": "Incorrect. MITM involves intercepting communication between two parties, not flooding a target with traffic." },
+        { "text": "Side-channel attack", "explanation": "Incorrect. Side-channel attacks exploit indirect physical characteristics like timing or power use, unrelated to traffic flooding." }
+      ],
+      "correctIndex": 1,
+      "explanation": "The 'distributed' element — many sources attacking simultaneously, often via a botnet — is what distinguishes DDoS from a simple single-source DoS attack."
+    },
+    {
+      "topic": "Network Security",
+      "question": "Which wireless security protocol is currently considered the strongest standard for encrypting WiFi traffic among the options listed?",
+      "choices": [
+        { "text": "WEP", "explanation": "Incorrect. WEP is an outdated, cryptographically broken protocol that should never be used." },
+        { "text": "WPA", "explanation": "Incorrect. WPA improved on WEP but has since been superseded by stronger standards." },
+        { "text": "WPA2", "explanation": "Incorrect. WPA2 is strong and widely deployed, but WPA3 offers further improvements and is the current strongest standard." },
+        { "text": "WPA3", "explanation": "Correct. WPA3 is the most current and strongest WiFi security standard, offering improved encryption and protection against offline password-guessing attacks." }
+      ],
+      "correctIndex": 3,
+      "explanation": "Wireless security has evolved WEP → WPA → WPA2 → WPA3, with each generation improving encryption strength; WPA3 is currently the strongest widely available standard."
+    },
+    {
+      "topic": "Network Security",
+      "question": "Segmenting a corporate network into separate VLANs for HR, Finance, and Engineering departments primarily helps to:",
+      "choices": [
+        { "text": "Increase total available bandwidth equally for all users.", "explanation": "Incorrect. VLANs organize traffic logically; they don't inherently increase total bandwidth." },
+        { "text": "Reduce the network's broadcast domain and limit lateral movement between departments.", "explanation": "Correct. VLANs isolate traffic into smaller logical segments, reducing broadcast traffic and containing the spread of an attacker who compromises one segment." },
+        { "text": "Eliminate the need for firewalls entirely.", "explanation": "Incorrect. VLANs complement, but don't replace, firewalls and other network security controls." },
+        { "text": "Automatically encrypt all data in transit.", "explanation": "Incorrect. VLAN segmentation is a logical separation mechanism, not an encryption technology." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Network segmentation via VLANs supports defense in depth by limiting how far an attacker can move laterally if one segment is compromised, and reduces unnecessary broadcast traffic."
+    },
+    {
+      "topic": "Security Operations",
+      "question": "A website's TLS certificate allows a browser to encrypt data using the site's public key, which only the site's corresponding private key can decrypt. This describes:",
+      "choices": [
+        { "text": "Symmetric encryption", "explanation": "Incorrect. Symmetric encryption uses one single shared key for both encryption and decryption, not a public/private key pair." },
+        { "text": "Asymmetric encryption", "explanation": "Correct. A mathematically linked key pair — public key for encryption, private key for decryption — is the definition of asymmetric encryption, as used in TLS." },
+        { "text": "Hashing", "explanation": "Incorrect. Hashing is a one-way function that cannot be decrypted to recover original data." },
+        { "text": "Steganography", "explanation": "Incorrect. Steganography hides data within other data (e.g., an image); it isn't a form of key-based encryption." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Asymmetric (public-key) encryption uses two mathematically related keys, allowing anyone to encrypt with the public key while only the private key holder can decrypt — the basis of TLS/SSL."
+    },
+    {
+      "topic": "Security Operations",
+      "question": "Before deploying a firewall rule change to production, an organization requires documented approval, a rollback plan, and testing in a staging environment. This process is known as:",
+      "choices": [
+        { "text": "System hardening", "explanation": "Incorrect. Hardening reduces a system's attack surface through configuration; it doesn't describe the approval workflow for making changes." },
+        { "text": "Change management", "explanation": "Correct. Requiring documented approval, testing, and rollback plans before implementing a change is the definition of a change management process." },
+        { "text": "Data classification", "explanation": "Incorrect. Data classification labels information sensitivity, unrelated to change approval workflows." },
+        { "text": "Incident triage", "explanation": "Incorrect. Triage prioritizes incidents during response, not planned changes to production systems." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Change management ensures that modifications to production systems are reviewed, tested, and reversible, reducing the risk of unintended outages or security gaps."
+    },
+    {
+      "topic": "Security Operations",
+      "question": "What is a primary security risk associated with a Bring Your Own Device (BYOD) policy?",
+      "choices": [
+        { "text": "Employees lose the ability to access company email entirely.", "explanation": "Incorrect. BYOD is meant to enable access from personal devices, not block it." },
+        { "text": "The organization has reduced visibility and control over the security posture of personally owned devices.", "explanation": "Correct. Since the organization doesn't own or fully manage personal devices, it typically has less insight into and control over their patch level, configuration, and security state." },
+        { "text": "BYOD always requires the organization to purchase more expensive hardware.", "explanation": "Incorrect. BYOD typically reduces hardware costs for the organization since employees use their own devices." },
+        { "text": "BYOD eliminates the need for any access control policy.", "explanation": "Incorrect. BYOD actually increases the need for strong access controls and device management policies, not less." }
+      ],
+      "correctIndex": 1,
+      "explanation": "BYOD introduces a fundamental security tradeoff: convenience and cost savings versus reduced organizational control and visibility over personally owned endpoints."
+    },
+    {
+      "topic": "Security Operations",
+      "question": "What is the primary purpose of an Acceptable Use Policy (AUP)?",
+      "choices": [
+        { "text": "To define which specific encryption algorithm must be used company-wide.", "explanation": "Incorrect. That level of technical detail belongs in a standard, not an AUP." },
+        { "text": "To define permitted and prohibited uses of company IT resources by employees.", "explanation": "Correct. An AUP sets expectations for how employees may and may not use company systems, networks, and devices." },
+        { "text": "To specify disaster recovery timelines and objectives.", "explanation": "Incorrect. Recovery timelines (RTO/RPO/MTD) are defined in BC/DR planning documents, not an AUP." },
+        { "text": "To classify data by sensitivity level.", "explanation": "Incorrect. Data classification is handled by a separate data classification policy." }
+      ],
+      "correctIndex": 1,
+      "explanation": "The AUP is one of the core policies listed under Domain 5's 'best practice security policies' — it sets the ground rules for appropriate use of organizational IT resources."
+    },
+    {
+      "topic": "Security Operations",
+      "question": "A security team aggregates logs from firewalls, servers, and endpoints into a central platform that correlates events and generates alerts for suspicious patterns. This best describes the function of a:",
+      "choices": [
+        { "text": "Standalone IDS", "explanation": "Incorrect. An IDS typically monitors one source (network or host); it doesn't aggregate and correlate logs from many diverse systems centrally." },
+        { "text": "SIEM (Security Information and Event Management) system", "explanation": "Correct. A SIEM centralizes log collection from multiple sources and correlates events to detect patterns and generate alerts — exactly as described." },
+        { "text": "VPN concentrator", "explanation": "Incorrect. A VPN concentrator manages encrypted remote connections, not log aggregation and correlation." },
+        { "text": "DMZ", "explanation": "Incorrect. A DMZ is a network segment for public-facing servers, unrelated to log monitoring." }
+      ],
+      "correctIndex": 1,
+      "explanation": "SIEM platforms are central to Security Operations, giving analysts a unified view across many log sources to detect and investigate suspicious activity that might not be visible from any single source alone."
+    },
+    {
+      "topic": "Security Principles",
+      "question": "A company patches a known vulnerability in its web application to reduce the likelihood of exploitation, rather than shutting the application down or purchasing insurance against potential losses. Which risk treatment strategy does this represent?",
+      "choices": [
+        { "text": "Risk avoidance", "explanation": "Incorrect. Avoidance means eliminating the risky activity entirely (e.g., shutting down the application); the app remains in use here." },
+        { "text": "Risk mitigation", "explanation": "Correct. Applying a control (a patch) to reduce the likelihood or impact of a risk is the definition of mitigation." },
+        { "text": "Risk transfer", "explanation": "Incorrect. No third party is absorbing the risk or cost; the organization is directly reducing it." },
+        { "text": "Risk acceptance", "explanation": "Incorrect. Acceptance means taking no action and tolerating the risk; here an active control was applied." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Mitigation is the most commonly applied risk treatment — reducing likelihood or impact through a control, such as patching, without eliminating the underlying activity."
+    },
+    {
+      "topic": "Security Principles",
+      "question": "After assessing that a proposed international expansion carries unacceptable legal and cybersecurity risk, a company's leadership cancels the project entirely rather than proceeding with added controls. This is an example of:",
+      "choices": [
+        { "text": "Risk avoidance", "explanation": "Correct. Eliminating the activity that creates the risk altogether — canceling the project — is the definition of risk avoidance." },
+        { "text": "Risk mitigation", "explanation": "Incorrect. Mitigation reduces risk through controls while continuing the activity; here the activity itself was eliminated." },
+        { "text": "Risk transfer", "explanation": "Incorrect. No risk was shifted to a third party." },
+        { "text": "Risk acceptance", "explanation": "Incorrect. Acceptance means proceeding and tolerating the risk; here the project was stopped, not accepted." }
+      ],
+      "correctIndex": 0,
+      "explanation": "When the potential impact or likelihood of a risk is too great to justify the activity, avoidance — not undertaking or continuing the activity — is the appropriate treatment."
+    },
+    {
+      "topic": "Security Principles",
+      "question": "A single security incident is expected to cause $10,000 in losses (Single Loss Expectancy) and is expected to occur twice per year (Annualized Rate of Occurrence). What is the Annualized Loss Expectancy (ALE)?",
+      "choices": [
+        { "text": "$5,000", "explanation": "Incorrect. This would result from dividing rather than multiplying SLE by ARO." },
+        { "text": "$10,000", "explanation": "Incorrect. This is only the SLE; it doesn't account for the frequency of occurrence." },
+        { "text": "$20,000", "explanation": "Correct. ALE = SLE x ARO = $10,000 x 2 = $20,000." },
+        { "text": "$200,000", "explanation": "Incorrect. This would only be correct if the ARO were 20, not 2." }
+      ],
+      "correctIndex": 2,
+      "explanation": "The quantitative risk formula ALE = SLE x ARO estimates expected annual loss from a given risk, helping justify the cost of a proposed control."
+    },
+    {
+      "topic": "Security Principles",
+      "question": "Which of the following is an example of a legal/regulatory requirement, rather than an internal company policy, that an organization handling EU citizens' personal data must comply with?",
+      "choices": [
+        { "text": "The company's internal Acceptable Use Policy", "explanation": "Incorrect. An AUP is an internally created governance document, not an external law." },
+        { "text": "The company's internal password standard", "explanation": "Incorrect. This is an internally defined technical standard, not an external legal requirement." },
+        { "text": "The General Data Protection Regulation (GDPR)", "explanation": "Correct. GDPR is an external law enacted by the EU that organizations must comply with when handling EU citizens' personal data, regardless of internal policy." },
+        { "text": "The company's internal employee onboarding procedure", "explanation": "Incorrect. This is an internal, company-created process document." }
+      ],
+      "correctIndex": 2,
+      "explanation": "Governance includes policies, procedures, and standards set internally, but also regulations and laws imposed externally — GDPR is a classic example of the latter tested under Domain 1."
+    },
+    {
+      "topic": "Security Principles",
+      "question": "Which of the following is an example of a technical control?",
+      "choices": [
+        { "text": "Data encryption at rest", "explanation": "Correct. Encryption is implemented through technology to protect data, making it a technical control." },
+        { "text": "A pre-employment background check", "explanation": "Incorrect. This is an administrative control involving HR policy and process." },
+        { "text": "A perimeter fence around a facility", "explanation": "Incorrect. This is a physical control." },
+        { "text": "An annual security awareness training session", "explanation": "Incorrect. Training is an administrative control." }
+      ],
+      "correctIndex": 0,
+      "explanation": "Technical controls are implemented through technology — encryption, firewalls, access control lists, IDS/IPS — distinguishing them from administrative (policy/process) and physical (tangible barrier) controls."
+    },
+    {
+      "topic": "Security Principles",
+      "question": "After a ransomware attack encrypts company files, the organization restores affected systems from clean, verified backups to resume normal operations. Which category of control does this restoration action represent?",
+      "choices": [
+        { "text": "Preventive control", "explanation": "Incorrect. Preventive controls stop an incident before it happens; the attack has already occurred here." },
+        { "text": "Detective control", "explanation": "Incorrect. Detective controls identify that an incident occurred; restoring from backup goes beyond detection." },
+        { "text": "Corrective control", "explanation": "Correct. Restoring systems to a known-good state after an incident to fix the damage is the definition of a corrective control." },
+        { "text": "Deterrent control", "explanation": "Incorrect. Deterrent controls discourage an attack before it's attempted, not remediate after the fact." }
+      ],
+      "correctIndex": 2,
+      "explanation": "Corrective controls repair or restore systems and data after an incident has occurred, complementing preventive and detective controls in a full control lifecycle."
+    },
+    {
+      "topic": "Security Principles",
+      "question": "A company reviews server audit logs weekly to identify any unauthorized configuration changes made during the prior week. Which type of control does this activity represent?",
+      "choices": [
+        { "text": "Preventive control", "explanation": "Incorrect. This activity happens after changes were already made; it doesn't stop them from occurring." },
+        { "text": "Detective control", "explanation": "Correct. Reviewing logs to identify unauthorized changes after the fact is a classic detective control." },
+        { "text": "Corrective control", "explanation": "Incorrect. Simply identifying the change isn't the same as fixing or restoring anything." },
+        { "text": "Physical control", "explanation": "Incorrect. Log review is a technical/administrative activity, not a physical barrier or mechanism." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Detective controls, like log reviews and audits, identify that something has already happened, complementing preventive controls that try to stop it beforehand."
+    },
+    {
+      "topic": "Security Principles",
+      "question": "Which ISC2 canon requires members to 'act honorably, honestly, justly, responsibly, and legally'?",
+      "choices": [
+        { "text": "The first canon", "explanation": "Incorrect. The first canon is 'Protect society, the common good, necessary public trust and confidence, and the infrastructure.'" },
+        { "text": "The second canon", "explanation": "Correct. 'Act honorably, honestly, justly, responsibly, and legally' is the second canon, addressing personal conduct." },
+        { "text": "The third canon", "explanation": "Incorrect. The third canon is 'Provide diligent and competent service to principals.'" },
+        { "text": "The fourth canon", "explanation": "Incorrect. The fourth canon is 'Advance and protect the profession.'" }
+      ],
+      "correctIndex": 1,
+      "explanation": "The exam may test the exact wording and order of the four ISC2 canons, so memorizing both the content and priority order is worthwhile."
+    },
+    {
+      "topic": "Security Principles",
+      "question": "When a user types a username into a login screen — before any password is verified — which IAAA component does this action represent?",
+      "choices": [
+        { "text": "Authentication", "explanation": "Incorrect. Authentication is the step that verifies the claimed identity, which happens after identification, typically via a password or other factor." },
+        { "text": "Identification", "explanation": "Correct. Providing a claimed identity, such as typing a username, is identification — the first step, before that identity is verified." },
+        { "text": "Authorization", "explanation": "Incorrect. Authorization determines what an authenticated user is permitted to do, which comes later in the process." },
+        { "text": "Accountability", "explanation": "Incorrect. Accountability involves tracking and attributing actions to a verified identity, occurring after authentication." }
+      ],
+      "correctIndex": 1,
+      "explanation": "IAAA proceeds in order: Identification (claiming who you are) → Authentication (proving it) → Authorization (determining what you can do) → Accountability (tracking what you did)."
+    },
+    {
+      "topic": "Security Principles",
+      "question": "After a user successfully logs in with valid credentials, the system determines which specific files they are permitted to open based on their assigned role. Which IAAA component does this represent?",
+      "choices": [
+        { "text": "Authentication", "explanation": "Incorrect. Authentication already occurred when the credentials were verified; this step happens afterward." },
+        { "text": "Identification", "explanation": "Incorrect. Identification is the initial claim of identity, which already happened before login succeeded." },
+        { "text": "Authorization", "explanation": "Correct. Determining what a verified user is permitted to access or do is the definition of authorization." },
+        { "text": "Non-repudiation", "explanation": "Incorrect. Non-repudiation ensures an action can't be denied later; it isn't about determining access permissions." }
+      ],
+      "correctIndex": 2,
+      "explanation": "Authorization is distinct from authentication: authentication proves identity, while authorization determines what that verified identity is allowed to do."
+    },
+    {
+      "topic": "Business Continuity, DR & Incident Response",
+      "question": "What is the primary purpose of a Business Impact Analysis (BIA)?",
+      "choices": [
+        { "text": "To calculate the organization's annual cyber-insurance premium", "explanation": "Incorrect. Insurance premiums are a financial/insurance matter, not the purpose of a BIA." },
+        { "text": "To identify critical business functions and the impact of their disruption, informing recovery priorities", "explanation": "Correct. A BIA identifies which business functions are most critical and quantifies the impact of their loss, forming the basis for RTOs, RPOs, and MTD." },
+        { "text": "To perform a penetration test on production systems", "explanation": "Incorrect. Penetration testing is a technical security assessment, unrelated to business impact analysis." },
+        { "text": "To configure firewall rules for the DMZ", "explanation": "Incorrect. Firewall configuration is a network security task, not part of a BIA." }
+      ],
+      "correctIndex": 1,
+      "explanation": "The BIA is a foundational BC/DR planning activity that identifies critical processes and their recovery requirements, driving decisions like RTO, RPO, and MTD."
+    },
+    {
+      "topic": "Business Continuity, DR & Incident Response",
+      "question": "A backup strategy captures only the data that has changed since the LAST FULL backup, regardless of any incremental backups taken since then. This is known as a:",
+      "choices": [
+        { "text": "Full backup", "explanation": "Incorrect. A full backup captures all data every time, not just changes since the last full backup." },
+        { "text": "Incremental backup", "explanation": "Incorrect. An incremental backup captures only changes since the last backup of ANY type (full or incremental), not specifically since the last full backup." },
+        { "text": "Differential backup", "explanation": "Correct. A differential backup captures all changes made since the last full backup, growing larger each day until the next full backup resets it." },
+        { "text": "Snapshot backup", "explanation": "Incorrect. A snapshot captures the state of a system at a point in time and isn't defined by its relationship to the last full backup." }
+      ],
+      "correctIndex": 2,
+      "explanation": "Differential backups grow in size over time (since they always reference the last full backup), while incremental backups stay small (since they only capture changes since the most recent backup of any kind) but require more backups to fully restore."
+    },
+    {
+      "topic": "Business Continuity, DR & Incident Response",
+      "question": "A recovery site provides only basic infrastructure — power, space, and connectivity — with no pre-installed servers or data, and typically takes days to weeks to become fully operational. This is known as a:",
+      "choices": [
+        { "text": "Hot site", "explanation": "Incorrect. A hot site is fully equipped and ready to take over within minutes." },
+        { "text": "Warm site", "explanation": "Incorrect. A warm site has some pre-installed hardware and partial data, activating in hours rather than days or weeks." },
+        { "text": "Cold site", "explanation": "Correct. A cold site provides only basic facilities and requires significant time and effort to become operational." },
+        { "text": "Reciprocal site", "explanation": "Incorrect. A reciprocal site is a mutual-aid arrangement between two organizations, not a description of infrastructure readiness level." }
+      ],
+      "correctIndex": 2,
+      "explanation": "DR sites range from cold (slowest, cheapest) to warm (partial readiness) to hot (fastest, most expensive) — a frequently tested spectrum on the CC exam."
+    },
+    {
+      "topic": "Business Continuity, DR & Incident Response",
+      "question": "After a security incident has been fully resolved, the response team documents what happened, evaluates what worked well, and identifies process improvements for next time. This describes which phase of incident response?",
+      "choices": [
+        { "text": "Containment", "explanation": "Incorrect. Containment happens during active response to limit the spread of an ongoing incident." },
+        { "text": "Detection and analysis", "explanation": "Incorrect. This phase involves identifying and confirming an incident, which already occurred earlier." },
+        { "text": "Preparation", "explanation": "Incorrect. Preparation happens before any incident occurs." },
+        { "text": "Post-incident activity", "explanation": "Correct. Reviewing lessons learned and improving processes after an incident is fully resolved is the post-incident activity phase." }
+      ],
+      "correctIndex": 3,
+      "explanation": "Post-incident activity closes the loop on the incident response lifecycle, feeding lessons learned back into the preparation phase to strengthen future response."
+    },
+    {
+      "topic": "Access Controls Concepts",
+      "question": "Which of the following is an example of an authorized-versus-unauthorized-personnel control at a facility?",
+      "choices": [
+        { "text": "A receptionist verifying visitor identification against a pre-approved list before issuing a visitor badge", "explanation": "Correct. Confirming a visitor's identity against an approved list before granting facility access directly controls who is authorized to be on-site." },
+        { "text": "A firewall blocking inbound network traffic", "explanation": "Incorrect. This is a logical/technical network control, unrelated to physical facility access." },
+        { "text": "A password complexity requirement", "explanation": "Incorrect. This is a logical access control governing system credentials, not physical personnel access." },
+        { "text": "A data classification label", "explanation": "Incorrect. Data classification concerns information sensitivity, not verifying who may physically enter a facility." }
+      ],
+      "correctIndex": 0,
+      "explanation": "Verifying identity against an approved list before granting facility access is a core example of managing authorized versus unauthorized personnel, a specific Domain 3 sub-topic."
+    },
+    {
+      "topic": "Access Controls Concepts",
+      "question": "A company's environmental design includes clear sightlines, adequate lighting, and landscaping that eliminates hiding spots near building entrances to discourage trespassing. This approach primarily supports:",
+      "choices": [
+        { "text": "Mandatory access control", "explanation": "Incorrect. MAC concerns system-enforced classification-based access, not physical environmental design." },
+        { "text": "Physical security through environmental design that deters and detects unauthorized approach", "explanation": "Correct. Designing physical spaces (lighting, sightlines, landscaping) to discourage and expose unauthorized activity is a recognized physical security control technique." },
+        { "text": "Role-based access control", "explanation": "Incorrect. RBAC governs logical system permissions based on job role, unrelated to building design." },
+        { "text": "Segregation of duties", "explanation": "Incorrect. Segregation of duties splits a process across multiple people, unrelated to facility design." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Physical security controls extend beyond locks and guards to environmental design choices that make unauthorized activity harder to conceal and easier to notice."
+    },
+    {
+      "topic": "Access Controls Concepts",
+      "question": "An alarm system triggers when a secured door is propped open beyond a permitted time threshold, alerting the security team in real time. This alarm system primarily functions as a:",
+      "choices": [
+        { "text": "Preventive control", "explanation": "Incorrect. The alarm doesn't physically stop the door from being propped open; it alerts staff after the condition occurs." },
+        { "text": "Detective control", "explanation": "Correct. The alarm detects and reports an abnormal condition so staff can respond, which is the function of a detective control." },
+        { "text": "Administrative control", "explanation": "Incorrect. This is a technology-based physical security mechanism, not a policy or procedure." },
+        { "text": "Corrective control", "explanation": "Incorrect. The alarm itself doesn't fix or remediate the situation; it only alerts to it." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Alarm systems detect and report conditions that require attention, making them detective controls even when the alert arrives in near real time."
+    },
+    {
+      "topic": "Access Controls Concepts",
+      "question": "Which statement BEST describes the goal of segregation of duties, distinct from least privilege?",
+      "choices": [
+        { "text": "Ensuring no single individual has enough access to both execute and conceal a fraudulent or malicious act, by dividing critical tasks among multiple people", "explanation": "Correct. Segregation of duties specifically prevents any one person from having full control over a sensitive process end-to-end." },
+        { "text": "Ensuring each user has only the minimum access needed for their own individual job", "explanation": "Incorrect. This describes least privilege, which focuses on an individual's access level, not splitting a process among people." },
+        { "text": "Ensuring physical entry points are monitored by CCTV", "explanation": "Incorrect. This describes a physical detective control, unrelated to segregation of duties." },
+        { "text": "Ensuring passwords meet minimum complexity requirements", "explanation": "Incorrect. This is a password policy control, unrelated to segregation of duties." }
+      ],
+      "correctIndex": 0,
+      "explanation": "Least privilege limits how much access one person has; segregation of duties limits how much of a sensitive process any one person can complete alone — the two principles are complementary but distinct."
+    },
+    {
+      "topic": "Access Controls Concepts",
+      "question": "A document is labeled 'Top Secret' in a Mandatory Access Control (MAC) system. According to MAC principles, who can access it?",
+      "choices": [
+        { "text": "Any employee who provides a business justification, regardless of clearance level", "explanation": "Incorrect. MAC does not allow discretionary justification-based access — access is strictly tied to classification level." },
+        { "text": "Only users holding a security clearance equal to or higher than 'Top Secret' AND a validated need-to-know", "explanation": "Correct. MAC requires both sufficient clearance level and a validated need-to-know before granting access to classified information." },
+        { "text": "Any user the document's creator personally approves", "explanation": "Incorrect. Owner-based discretionary approval describes DAC, not MAC." },
+        { "text": "Any user in the same department as the document's creator", "explanation": "Incorrect. Department membership alone does not grant access in a MAC system; formal clearance and need-to-know are required." }
+      ],
+      "correctIndex": 1,
+      "explanation": "MAC access decisions are enforced by the system based on formal clearance levels combined with need-to-know, not by department membership or an individual's discretion."
+    },
+    {
+      "topic": "Access Controls Concepts",
+      "question": "Which of the following BEST illustrates the principle of least privilege being properly enforced?",
+      "choices": [
+        { "text": "A marketing employee is granted read-only access to the specific campaign folder needed for their current project, and nothing else", "explanation": "Correct. Granting only the minimum access required for a specific task is a textbook example of least privilege in practice." },
+        { "text": "A new employee is granted the same broad access as their entire department 'to save time'", "explanation": "Incorrect. This grants more access than necessary and violates least privilege." },
+        { "text": "An administrator is given permanent domain admin rights for convenience", "explanation": "Incorrect. Permanent elevated access 'for convenience' is a common least-privilege violation." },
+        { "text": "All employees share a single generic login account", "explanation": "Incorrect. Shared accounts violate both least privilege and accountability principles." }
+      ],
+      "correctIndex": 0,
+      "explanation": "Least privilege means granting exactly the access required for a specific task or role — no more, no less — which the marketing example demonstrates correctly."
+    },
+    {
+      "topic": "Access Controls Concepts",
+      "question": "What is the primary security risk of failing to promptly deprovision (remove) a terminated employee's system access?",
+      "choices": [
+        { "text": "The organization may incur slightly higher electricity costs", "explanation": "Incorrect. This is not a meaningful security concern related to access control." },
+        { "text": "The former employee could retain unauthorized access to systems and data after their employment ends", "explanation": "Correct. Delayed deprovisioning is a common source of insider-threat risk, as former employees may still be able to log in and access sensitive resources." },
+        { "text": "The company's firewall rule set becomes outdated", "explanation": "Incorrect. Firewall rules are unrelated to an individual user's account deprovisioning." },
+        { "text": "The company's DMZ becomes exposed to the internet", "explanation": "Incorrect. DMZ exposure is a network architecture issue, not a consequence of delayed account deprovisioning." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Prompt deprovisioning upon termination is a critical access control practice — lingering accounts are a well-documented vector for insider threat and unauthorized access."
+    },
+    {
+      "topic": "Access Controls Concepts",
+      "question": "A company installs mantraps, requires badge-in/badge-out at every secured door, and stations a guard at the main lobby. Together, these measures are examples of which broad category of access control?",
+      "choices": [
+        { "text": "Logical access controls", "explanation": "Incorrect. Logical access controls govern digital systems and accounts, not physical entry points." },
+        { "text": "Physical access controls", "explanation": "Correct. Mantraps, badge readers, and guards all control physical entry into secured spaces." },
+        { "text": "Administrative access controls", "explanation": "Incorrect. While policies may require these measures, the measures themselves are physical mechanisms, not administrative documents." },
+        { "text": "Detective-only controls", "explanation": "Incorrect. Several of these (mantraps, badge readers) are preventive, not purely detective." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Domain 3 splits access controls into physical (protecting tangible spaces) and logical (protecting digital systems) categories — this scenario describes physical controls exclusively."
+    },
+    {
+      "topic": "Network Security",
+      "question": "At which OSI layer does a router primarily operate when making forwarding decisions based on IP addresses?",
+      "choices": [
+        { "text": "Layer 2 (Data Link)", "explanation": "Incorrect. Layer 2 devices like switches forward based on MAC addresses, not IP addresses." },
+        { "text": "Layer 3 (Network)", "explanation": "Correct. Routers operate at Layer 3, making forwarding decisions based on logical IP addressing." },
+        { "text": "Layer 4 (Transport)", "explanation": "Incorrect. Layer 4 handles end-to-end connections and ports (TCP/UDP), not IP-based routing decisions." },
+        { "text": "Layer 7 (Application)", "explanation": "Incorrect. Layer 7 is where application-level protocols like HTTP operate, far above basic routing." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Routers are Layer 3 devices that use IP addresses to determine the best path for forwarding packets between networks, distinguishing them from Layer 2 switches."
+    },
+    {
+      "topic": "Network Security",
+      "question": "Which statement correctly distinguishes TCP from UDP?",
+      "choices": [
+        { "text": "TCP is connectionless and unreliable, while UDP is connection-oriented and reliable", "explanation": "Incorrect. This reverses the actual characteristics of the two protocols." },
+        { "text": "TCP establishes a reliable, connection-oriented session with delivery confirmation, while UDP is a faster, connectionless protocol with no delivery guarantee", "explanation": "Correct. TCP's three-way handshake and acknowledgments make it reliable but slower; UDP skips these steps for speed at the cost of guaranteed delivery." },
+        { "text": "TCP and UDP both guarantee delivery in exactly the same way", "explanation": "Incorrect. Only TCP guarantees delivery through acknowledgments and retransmission; UDP does not." },
+        { "text": "UDP is used exclusively for web browsing traffic", "explanation": "Incorrect. Standard web browsing (HTTP/HTTPS) typically uses TCP; UDP is common for things like streaming and DNS queries." }
+      ],
+      "correctIndex": 1,
+      "explanation": "TCP prioritizes reliability (handshakes, acknowledgments, retransmission) while UDP prioritizes speed and low overhead, making each suited to different types of network traffic."
+    },
+    {
+      "topic": "Network Security",
+      "question": "A piece of malware automatically spreads across a network by exploiting a vulnerability, without requiring any user interaction or a host file to attach to. This is best classified as a:",
+      "choices": [
+        { "text": "Worm", "explanation": "Correct. Worms self-propagate across networks autonomously, exploiting vulnerabilities without needing user action or a host file." },
+        { "text": "Trojan", "explanation": "Incorrect. A Trojan requires a user to be tricked into running it and does not self-replicate." },
+        { "text": "Logic bomb", "explanation": "Incorrect. A logic bomb lies dormant until a specific trigger condition occurs; it doesn't necessarily self-propagate across a network." },
+        { "text": "Side-channel exploit", "explanation": "Incorrect. Side-channel exploits extract information through indirect physical characteristics, unrelated to network self-propagation." }
+      ],
+      "correctIndex": 0,
+      "explanation": "The defining characteristic of a worm is autonomous, self-replicating spread across systems or networks — no user interaction and no host file required, unlike a virus or Trojan."
+    },
+    {
+      "topic": "Network Security",
+      "question": "Malicious code attaches itself to a legitimate executable file and requires that file to be run by a user before it can activate and spread to other files. This is best classified as a:",
+      "choices": [
+        { "text": "Worm", "explanation": "Incorrect. A worm self-propagates without needing a host file or user action; this scenario requires both." },
+        { "text": "Virus", "explanation": "Correct. A virus attaches to a host file and requires user execution to activate and spread — matching this scenario exactly." },
+        { "text": "Trojan", "explanation": "Incorrect. A Trojan disguises itself as standalone legitimate software rather than attaching to and infecting other files." },
+        { "text": "Rootkit", "explanation": "Incorrect. A rootkit's defining feature is hiding its presence deep in a system, not the attach-and-spread behavior described here." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Viruses require a host file and user execution to activate and spread, distinguishing them from worms (which self-propagate) and Trojans (which disguise themselves as legitimate standalone software)."
+    },
+    {
+      "topic": "Network Security",
+      "question": "An attacker measures tiny variations in a smart card's power consumption while it performs cryptographic operations to infer its secret key, without directly attacking the cryptographic algorithm itself. This is an example of a:",
+      "choices": [
+        { "text": "Man-in-the-middle attack", "explanation": "Incorrect. MITM involves intercepting communication between two parties, not analyzing a device's physical characteristics." },
+        { "text": "Side-channel attack", "explanation": "Correct. Extracting secret information by observing indirect physical characteristics like power consumption, timing, or electromagnetic emissions is the definition of a side-channel attack." },
+        { "text": "Distributed denial-of-service attack", "explanation": "Incorrect. DDoS targets availability by flooding a system with traffic, unrelated to power-analysis techniques." },
+        { "text": "Trojan", "explanation": "Incorrect. A Trojan is malware disguised as legitimate software, not a physical measurement technique." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Side-channel attacks exploit unintended information leakage from a system's physical implementation (power, timing, sound, electromagnetic emissions) rather than attacking the cryptography or software directly."
+    },
+    {
+      "topic": "Network Security",
+      "question": "Traditional signature-based antivirus software is generally LESS effective against which type of threat?",
+      "choices": [
+        { "text": "Well-known, previously catalogued malware", "explanation": "Incorrect. Signature-based tools are typically very effective at catching already-known, catalogued threats." },
+        { "text": "Novel, zero-day malware that has no matching signature yet", "explanation": "Correct. Signature-based detection relies on matching known patterns, so it struggles against new, previously unseen malware until a signature is created and distributed." },
+        { "text": "Malware distributed via common email attachments", "explanation": "Incorrect. This delivery method alone doesn't determine detection effectiveness; known malware delivered this way is still typically caught." },
+        { "text": "Malware already included in the vendor's signature database", "explanation": "Incorrect. This is exactly the case where signature-based detection performs well." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Signature-based detection compares files against a database of known malware patterns, making it inherently reactive and less effective against novel, zero-day threats until signatures are updated."
+    },
+    {
+      "topic": "Network Security",
+      "question": "A data center deploys redundant power feeds, backup generators, and dual internet uplinks to ensure continued operation if one component fails. This design principle primarily supports:",
+      "choices": [
+        { "text": "Confidentiality", "explanation": "Incorrect. Redundant infrastructure doesn't prevent unauthorized disclosure of data." },
+        { "text": "Redundancy and high availability of network infrastructure", "explanation": "Correct. Duplicating critical infrastructure components ensures continued operation even if one fails, directly supporting availability." },
+        { "text": "Non-repudiation", "explanation": "Incorrect. Non-repudiation concerns proving actions occurred, unrelated to infrastructure redundancy." },
+        { "text": "Least privilege", "explanation": "Incorrect. Least privilege concerns access rights, not infrastructure design." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Redundant power, connectivity, and hardware are core on-premises infrastructure design elements under Domain 4, directly supporting the 'A' in the CIA triad."
+    },
+    {
+      "topic": "Network Security",
+      "question": "Which environmental control is specifically intended to prevent data center equipment from overheating and failing?",
+      "choices": [
+        { "text": "HVAC (Heating, Ventilation, and Air Conditioning) systems", "explanation": "Correct. HVAC systems regulate temperature and airflow to prevent servers and network equipment from overheating." },
+        { "text": "A DMZ", "explanation": "Incorrect. A DMZ is a network segmentation concept, unrelated to physical environmental controls." },
+        { "text": "A VLAN", "explanation": "Incorrect. A VLAN is a logical network segmentation technique, not an environmental control." },
+        { "text": "An IPS", "explanation": "Incorrect. An IPS prevents malicious network traffic; it has no role in temperature regulation." }
+      ],
+      "correctIndex": 0,
+      "explanation": "On-premises network security infrastructure includes environmental controls like HVAC, fire suppression, and power redundancy — all essential to keeping equipment operational and available."
+    },
+    {
+      "topic": "Network Security",
+      "question": "A company outsources part of its infrastructure monitoring to a third-party Managed Service Provider (MSP) and defines uptime guarantees in a contractual Service Level Agreement (SLA). This scenario best relates to which aspect of network security infrastructure?",
+      "choices": [
+        { "text": "On-premises infrastructure design", "explanation": "Incorrect. This scenario explicitly involves outsourcing to a third party, not managing infrastructure in-house." },
+        { "text": "Cloud/outsourced infrastructure considerations", "explanation": "Correct. MSPs and SLAs are core concepts under the cloud/outsourced infrastructure sub-topic of network security." },
+        { "text": "Network threat detection", "explanation": "Incorrect. This scenario is about vendor relationships and contractual guarantees, not detecting specific threats." },
+        { "text": "Wireless encryption standards", "explanation": "Incorrect. WiFi encryption is unrelated to third-party service provider arrangements." }
+      ],
+      "correctIndex": 1,
+      "explanation": "MSPs, SLAs, and cloud service models (SaaS/IaaS/PaaS) fall under the cloud/outsourced infrastructure sub-topic within Domain 4's network security infrastructure content."
+    },
+    {
+      "topic": "Network Security",
+      "question": "How does micro-segmentation differ from traditional VLAN-based network segmentation?",
+      "choices": [
+        { "text": "Micro-segmentation applies granular security policies down to the individual workload or application level, rather than segmenting by broad network zones alone", "explanation": "Correct. Micro-segmentation enforces fine-grained policies between individual workloads, offering tighter control than broader VLAN-based zone segmentation." },
+        { "text": "Micro-segmentation eliminates the need for any firewall rules", "explanation": "Incorrect. Micro-segmentation typically relies on policy enforcement points that function similarly to firewalls at a granular level; it doesn't eliminate rule-based enforcement." },
+        { "text": "Micro-segmentation only applies to physical, non-virtualized networks", "explanation": "Incorrect. Micro-segmentation is commonly used in virtualized and cloud environments, not limited to physical networks." },
+        { "text": "Micro-segmentation and VLANs are functionally identical with no meaningful difference", "explanation": "Incorrect. While related, micro-segmentation offers far more granular control than traditional VLAN-based segmentation." }
+      ],
+      "correctIndex": 0,
+      "explanation": "Micro-segmentation extends the concept of network segmentation down to individual workloads or applications, providing much finer-grained containment than zone-based VLAN segmentation alone."
+    },
+    {
+      "topic": "Security Operations",
+      "question": "Which of the following best reflects a strong password policy control?",
+      "choices": [
+        { "text": "Requiring a minimum length, complexity, and periodic rotation while discouraging reuse across systems", "explanation": "Correct. Strong password policies typically combine length, complexity, rotation, and anti-reuse requirements to reduce the risk of compromise." },
+        { "text": "Allowing employees to reuse the same simple password indefinitely across all systems", "explanation": "Incorrect. Password reuse across systems significantly increases risk if one system is compromised." },
+        { "text": "Removing all password requirements to improve usability", "explanation": "Incorrect. Eliminating requirements entirely sacrifices security for convenience and is not a recommended practice." },
+        { "text": "Storing passwords in plaintext for faster verification", "explanation": "Incorrect. Storing passwords in plaintext is a severe security failure; passwords should always be hashed (and salted)." }
+      ],
+      "correctIndex": 0,
+      "explanation": "Password policy is one of the named best-practice security policies under Domain 5, combining several controls (length, complexity, rotation, reuse restrictions) to reduce credential-based risk."
+    },
+    {
+      "topic": "Security Operations",
+      "question": "An organization labels documents as 'Public,' 'Internal,' 'Confidential,' or 'Restricted' based on sensitivity, and applies different handling requirements to each. This practice is known as:",
+      "choices": [
+        { "text": "Data destruction", "explanation": "Incorrect. Destruction is about disposing of data at end-of-life, not categorizing it by sensitivity." },
+        { "text": "Data classification and labeling", "explanation": "Correct. Assigning sensitivity categories and applying corresponding labels and handling rules is the definition of data classification and labeling." },
+        { "text": "System hardening", "explanation": "Incorrect. Hardening reduces a system's attack surface through configuration, unrelated to data sensitivity categorization." },
+        { "text": "Change management", "explanation": "Incorrect. Change management governs how changes to systems are approved and tracked, unrelated to data classification." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Data classification and labeling ensures sensitive data receives appropriate handling, storage, and access controls proportional to its sensitivity level."
+    },
+    {
+      "topic": "Security Operations",
+      "question": "What is the primary purpose of establishing a security configuration baseline for servers?",
+      "choices": [
+        { "text": "To document a known-good, approved starting configuration that can be used to detect unauthorized changes and ensure consistency", "explanation": "Correct. A baseline provides a reference point for what a properly configured system should look like, supporting both consistency and change detection." },
+        { "text": "To permanently disable all logging on the system", "explanation": "Incorrect. Disabling logging would reduce visibility and is contrary to good security practice, not the purpose of a baseline." },
+        { "text": "To eliminate the need for future patching", "explanation": "Incorrect. Baselines don't remove the ongoing need to apply security patches over a system's lifecycle." },
+        { "text": "To grant all users administrator access by default", "explanation": "Incorrect. This would violate least privilege and is not related to configuration baselining." }
+      ],
+      "correctIndex": 0,
+      "explanation": "Configuration baselines, part of configuration management under system hardening, establish a documented standard that supports consistency, auditing, and detection of unauthorized drift."
+    },
+    {
+      "topic": "Security Operations",
+      "question": "Why is timely patch management considered a critical security operations activity?",
+      "choices": [
+        { "text": "It has no real impact on an organization's security posture", "explanation": "Incorrect. Patch management directly affects an organization's exposure to known vulnerabilities." },
+        { "text": "It closes known vulnerabilities before attackers can exploit them", "explanation": "Correct. Applying patches promptly reduces the window of opportunity for attackers to exploit publicly known vulnerabilities." },
+        { "text": "It only improves software performance, never security", "explanation": "Incorrect. While patches can improve performance, security patches specifically address known vulnerabilities." },
+        { "text": "It replaces the need for firewalls entirely", "explanation": "Incorrect. Patch management complements, but doesn't replace, other layered controls like firewalls." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Unpatched, known vulnerabilities are among the most common ways attackers gain initial access, making timely patch management a core system hardening activity."
+    },
+    {
+      "topic": "Security Operations",
+      "question": "What is the primary purpose of an organizational privacy policy?",
+      "choices": [
+        { "text": "To define which firewall ports must remain open", "explanation": "Incorrect. Firewall configuration is a technical network security matter, not the subject of a privacy policy." },
+        { "text": "To describe how the organization collects, uses, shares, and protects personal information", "explanation": "Correct. A privacy policy explains an organization's practices regarding the handling of personal data, often required for legal/regulatory compliance." },
+        { "text": "To specify server hardening configuration baselines", "explanation": "Incorrect. Hardening baselines are a separate technical configuration matter." },
+        { "text": "To define acceptable use of company laptops", "explanation": "Incorrect. That is the role of an Acceptable Use Policy (AUP), not a privacy policy." }
+      ],
+      "correctIndex": 1,
+      "explanation": "The privacy policy is one of the named best-practice security policies under Domain 5, distinct from the AUP, password policy, and other policy types."
+    },
+    {
+      "topic": "Security Operations",
+      "question": "A security team retains system and application logs for 12 months and reviews them regularly to identify anomalies and support forensic investigations if needed. This practice primarily supports:",
+      "choices": [
+        { "text": "Data destruction", "explanation": "Incorrect. This describes retaining and reviewing logs, the opposite of destroying data." },
+        { "text": "Logging and monitoring of security events", "explanation": "Correct. Retaining and reviewing logs to detect anomalies and support investigations is the definition of logging and monitoring, a Domain 5 data security sub-topic." },
+        { "text": "Risk transfer", "explanation": "Incorrect. No risk is being shifted to a third party in this scenario." },
+        { "text": "Physical access control", "explanation": "Incorrect. Log retention and review is a data/technical activity, not a physical security measure." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Logging and monitoring security events allows an organization to detect anomalies, support investigations, and demonstrate compliance — a key data security responsibility under Domain 5."
+    },
+    {
+      "topic": "Security Operations",
+      "question": "An organization sends simulated phishing emails to employees on a recurring basis, providing immediate feedback and additional training to anyone who clicks a malicious link. This is an example of:",
+      "choices": [
+        { "text": "Change management", "explanation": "Incorrect. Change management governs approval of production system changes, unrelated to employee training exercises." },
+        { "text": "Security awareness training", "explanation": "Correct. Simulated phishing exercises with follow-up training are a common, practical form of security awareness training focused on social engineering resistance." },
+        { "text": "System hardening", "explanation": "Incorrect. Hardening addresses system configuration, not employee behavior training." },
+        { "text": "Data classification", "explanation": "Incorrect. Data classification concerns labeling information sensitivity, unrelated to phishing simulations." }
+      ],
+      "correctIndex": 1,
+      "explanation": "Security awareness training, including phishing simulations, directly addresses the human element of security and is explicitly named in Domain 5's exam outline."
+    },
+    {
+      "topic": "Security Operations",
+      "question": "Which of the following data handling practices poses the GREATEST risk to an organization's data security policy?",
+      "choices": [
+        { "text": "Encrypting sensitive files before storage", "explanation": "Incorrect. Encryption is a strong protective practice, not a risk." },
+        { "text": "Classifying and labeling data according to sensitivity", "explanation": "Incorrect. Classification and labeling support proper handling and are protective, not risky, practices." },
+        { "text": "An employee copying confidential files to an unencrypted personal USB drive to work from home", "explanation": "Correct. Moving sensitive data to an unmanaged, unencrypted personal device outside organizational control creates significant risk of loss, theft, or unauthorized disclosure." },
+        { "text": "Following the organization's documented data retention schedule", "explanation": "Incorrect. Following an approved retention schedule is a compliant, low-risk practice." }
+      ],
+      "correctIndex": 2,
+      "explanation": "Moving sensitive data onto unmanaged personal devices bypasses organizational security controls (encryption, monitoring, access management), making it one of the most common and serious data handling risks."
+    }
+  ]
+}
